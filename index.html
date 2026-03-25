@@ -18,8 +18,15 @@
       color: #fff;
     }
 
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
     .container {
-      max-width: 760px;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
     .hero,
@@ -32,7 +39,8 @@
     }
 
     .hero {
-      padding-top: 3.5rem;
+      padding-top: 4.5rem;
+      text-align: center;
     }
 
     h1,
@@ -46,15 +54,23 @@
       margin-bottom: 1rem;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 0.85rem;
+    .logo {
+      width: 72px;
+      margin: 0 auto 1.25rem;
+      display: block;
+      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.18));
     }
 
-    .logo {
-      width: 48px;
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin-bottom: 1rem;
-      display: block;
+    }
+
+    .brand h1 {
+      font-size: 2.6rem;
+      margin: 0.4rem 0;
     }
 
     .tagline,
@@ -149,8 +165,16 @@
       }
 
       .hero h1 {
-        font-size: 2.35rem;
+        font-size: 2.2rem;
         margin-bottom: 0.7rem;
+      }
+
+      .brand h1 {
+        font-size: 2.2rem;
+      }
+
+      .logo {
+        width: 64px;
       }
 
       .tagline,
@@ -189,9 +213,11 @@
   <main class="container">
 
     <section class="hero">
-      <img src="logo.png" class="logo" alt="Æffinityone logo" />
-      <span class="section-label">Product Company</span>
-      <h1>Æffinityone</h1>
+      <div class="brand">
+        <img src="logo.png" class="logo" alt="Æffinityone logo" />
+        <h1>Æffinityone</h1>
+        <span class="section-label">Product Company</span>
+      </div>
       <p class="tagline">
         Building modern connection platforms designed for safety, authenticity, and real interaction.
       </p>
