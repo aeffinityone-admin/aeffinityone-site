@@ -103,16 +103,19 @@
 
     .product-header {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 0.5rem;
+      text-align: center;
     }
 
     .product-logo {
-      width: 36px;
-      height: 36px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.2));
+      width: 56px;
+      margin-bottom: 0.6rem;
+      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.18));
+    }
+
+    .product-header h2 {
+      font-size: 2.2rem;
     }
 
     .product-card {
@@ -192,12 +195,11 @@
       }
 
       .product-logo {
-        width: 32px;
-        height: 32px;
+        width: 48px;
       }
 
-      .product-header {
-        gap: 10px;
+      .product-header h2 {
+        font-size: 1.9rem;
       }
 
       .tagline,
