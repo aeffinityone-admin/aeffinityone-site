@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safety & Reporting - Amouraéx</title>
+
+<style>
+:root { color-scheme: dark; }
+
+html, body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: system-ui, -apple-system;
+  overflow-x: hidden;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,215,0,0.2);
+  padding: 14px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  height: 2px;
+  background: #FFD700;
+  width: 0%;
+  z-index: 200;
+}
+
+.container {
+  max-width: 720px;
+  margin: auto;
+  padding: 28px 20px 60px;
+}
+
+h1 { font-size: 2rem; margin-bottom: 10px; }
+h2 { color: #FFD700; font-size: 1.2rem; margin-bottom: 8px; }
+
+.section {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,215,0,0.15);
+  background: rgba(255,255,255,0.02);
+}
+
+ul { padding-left: 18px; }
+p, li { line-height: 1.75; color: rgba(255,255,255,0.86); }
+
+.highlight {
+  margin-top: 12px;
+  padding: 12px;
+  border-left: 3px solid #FFD700;
+  background: rgba(255,215,0,0.08);
+  border-radius: 8px;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+  .container { padding: 24px 16px 50px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress" id="progressBar"></div>
+<div class="header">Safety & Reporting</div>
+
+<main class="container">
+
+<h1>Safety & Reporting</h1>
+
+<div class="section">
+<p>Your safety is our priority. Amouraéx includes tools to help protect users and maintain a secure environment.</p>
+</div>
+
+<div class="section">
+<h2>Reporting Users</h2>
+<ul>
+<li>Report inappropriate behavior directly in the app</li>
+<li>Reports are reviewed by moderation</li>
+<li>Evidence may be stored for safety review</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Blocking</h2>
+<ul>
+<li>You can block any user at any time</li>
+<li>Blocked users cannot contact you</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Moderation</h2>
+<ul>
+<li>Content may be reviewed for safety</li>
+<li>Accounts may be restricted or removed</li>
+</ul>
+
+<div class="highlight">
+Severe violations may result in permanent bans and law enforcement reporting.
+</div>
+</div>
+
+<div class="section">
+<h2>Safety Tips</h2>
+<ul>
+<li>Do not share personal or financial information</li>
+<li>Meet in public places</li>
+<li>Trust your instincts</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Contact</h2>
+<p>admin@aeffinityone.com</p>
+</div>
+
+<footer>
+<p>© 2026 Æffinityone LLC</p>
+</footer>
+
+</main>
+
+<script>
+window.addEventListener("scroll", () => {
+  const s = window.scrollY;
+  const h = document.body.scrollHeight - window.innerHeight;
+  document.getElementById("progressBar").style.width = (s/h)*100 + "%";
+});
+</script>
+
+</body>
+</html>
