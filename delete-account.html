@@ -1,56 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Delete Your Account - Amouraéx</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #fff;
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1 {
-      color: gold;
-    }
-    a {
-      color: gold;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Account - Amouraéx</title>
+
+<style>
+:root { color-scheme: dark; }
+
+html, body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: system-ui, -apple-system;
+  overflow-x: hidden;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,215,0,0.2);
+  padding: 14px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  height: 2px;
+  background: #FFD700;
+  width: 0%;
+  z-index: 200;
+}
+
+.container {
+  max-width: 720px;
+  margin: auto;
+  padding: 28px 20px 60px;
+}
+
+h1 { font-size: 2rem; margin-bottom: 10px; }
+h2 { color: #FFD700; font-size: 1.2rem; margin-bottom: 8px; }
+
+.section {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,215,0,0.15);
+  background: rgba(255,255,255,0.02);
+}
+
+ol, ul { padding-left: 18px; }
+
+.highlight {
+  margin-top: 12px;
+  padding: 12px;
+  border-left: 3px solid #FFD700;
+  background: rgba(255,215,0,0.08);
+  border-radius: 8px;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+  .container { padding: 24px 16px 50px; }
+}
+</style>
 </head>
+
 <body>
 
-<h1>Delete Your Amouraéx Account</h1>
+<div class="progress" id="progressBar"></div>
+<div class="header">Delete Account</div>
 
-<p>If you would like to delete your account and associated data, follow the steps below:</p>
+<main class="container">
 
+<h1>Delete Your Account</h1>
+
+<div class="section">
+<p>If you would like to delete your account and associated data, follow the steps below.</p>
+</div>
+
+<div class="section">
 <h2>In-App Deletion</h2>
 <ol>
-  <li>Open the Amouraéx app</li>
-  <li>Go to <strong>Settings</strong></li>
-  <li>Select <strong>Account</strong></li>
-  <li>Tap <strong>Delete Account</strong></li>
+<li>Open the Amouraéx app</li>
+<li>Go to Settings</li>
+<li>Select Account</li>
+<li>Tap Delete Account</li>
 </ol>
+</div>
 
-<h2>Request via Email</h2>
-<p>You can also request account deletion by contacting us:</p>
+<div class="section">
+<h2>Email Request</h2>
+<p>Contact us at:</p>
+<p><a href="mailto:admin@aeffinityone.com">admin@aeffinityone.com</a></p>
+</div>
 
-<p>Email: <a href="mailto:admin@aeffinityone.com">admin@aeffinityone.com</a></p>
-
-<h2>What Happens When You Delete Your Account</h2>
+<div class="section">
+<h2>What Happens After Deletion</h2>
 <ul>
-  <li>Your profile and personal information will be deleted</li>
-  <li>Your photos will be removed</li>
-  <li>Your messages and conversations will be deleted</li>
+<li>Your profile and data are removed</li>
+<li>Your photos are deleted</li>
+<li>Your conversations are removed</li>
 </ul>
 
-<p>Some limited data may be retained for a short period where required for legal, security, or fraud prevention purposes.</p>
+<div class="highlight">
+Some data may be temporarily retained for legal, security, or fraud prevention purposes.
+</div>
+</div>
 
-<p>Æffinityone LLC</p>
+<footer>
+<p>© 2026 Æffinityone LLC</p>
+</footer>
+
+</main>
+
+<script>
+window.addEventListener("scroll", () => {
+  const s = window.scrollY;
+  const h = document.body.scrollHeight - window.innerHeight;
+  document.getElementById("progressBar").style.width = (s/h)*100 + "%";
+});
+</script>
 
 </body>
 </html>
