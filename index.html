@@ -101,6 +101,20 @@
       text-transform: uppercase;
     }
 
+    .product-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-logo {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.2));
+    }
+
     .product-card {
       margin-top: 1.5rem;
       padding: 1.75rem;
@@ -177,6 +191,15 @@
         width: 64px;
       }
 
+      .product-logo {
+        width: 32px;
+        height: 32px;
+      }
+
+      .product-header {
+        gap: 10px;
+      }
+
       .tagline,
       .section-intro,
       .mission p,
@@ -214,7 +237,6 @@
 
     <section class="hero">
       <div class="brand">
-        <img src="logo.png" class="logo" alt="Æffinityone logo" />
         <h1>Æffinityone</h1>
         <span class="section-label">Product Company</span>
       </div>
@@ -225,7 +247,10 @@
 
     <section class="product-highlight">
       <span class="section-label">Flagship Platform</span>
-      <h2>Amouraéx</h2>
+      <div class="product-header">
+        <img src="logo.png" class="product-logo" alt="Amouraéx logo" />
+        <h2>Amouraéx</h2>
+      </div>
       <div class="product-card">
         <p class="section-intro">
           A private relationship platform focused on meaningful connections, user safety, and intentional interaction.
