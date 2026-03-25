@@ -6,59 +6,97 @@
 <title>Privacy Policy - Æffinityone</title>
 <link rel="stylesheet" href="styles.css" />
 <style>
-body {
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
   background: #000;
   color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,215,0,0.2);
+  padding: 14px 20px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: #FFD700;
+  width: 0%;
+  z-index: 200;
 }
 
 .container {
   max-width: 720px;
   margin: 0 auto;
-  padding: 32px 20px 60px;
+  padding: 28px 20px 60px;
 }
 
 h1 {
-  font-size: 2.2rem;
-  margin-bottom: 8px;
+  font-size: 2.1rem;
+  margin-bottom: 6px;
 }
 
 h2 {
   color: #FFD700;
-  margin-top: 32px;
-  margin-bottom: 12px;
-  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-size: 1.25rem;
 }
 
 p, li {
   line-height: 1.75;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.86);
 }
 
 .section {
-  margin-top: 24px;
-  padding: 20px;
-  border: 1px solid rgba(255, 215, 0, 0.18);
+  margin-top: 20px;
+  padding: 18px;
   border-radius: 14px;
+  border: 1px solid rgba(255,215,0,0.15);
   background: rgba(255,255,255,0.02);
+  transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.section:hover {
+  transform: translateY(-2px);
+  border: 1px solid rgba(255,215,0,0.35);
 }
 
 ul {
   padding-left: 18px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .highlight {
-  background: rgba(255, 215, 0, 0.08);
-  border-left: 3px solid #FFD700;
-  padding: 12px 14px;
-  border-radius: 8px;
   margin-top: 12px;
+  padding: 12px 14px;
+  border-left: 3px solid #FFD700;
+  background: rgba(255,215,0,0.08);
+  border-radius: 8px;
+  font-size: 0.95rem;
 }
 
 footer {
   margin-top: 40px;
   text-align: center;
   opacity: 0.6;
+  font-size: 0.85rem;
 }
 
 @media (max-width: 600px) {
@@ -67,20 +105,24 @@ footer {
   }
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
   }
 
   h2 {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
 
   .section {
-    padding: 16px;
+    padding: 15px;
   }
 }
 </style>
 </head>
 <body>
+<div class="progress" id="progressBar"></div>
+<div class="header">
+  Æffinityone Legal
+</div>
 <main class="container">
 
 <h1>Privacy Policy</h1>
@@ -127,7 +169,7 @@ footer {
 <h2>User Rights</h2>
 <p>You may request access, correction, or deletion of your data.</p>
 <div class="highlight">
-You have the right to request access, correction, or deletion of your personal data at any time.
+You can request access, correction, or deletion of your data at any time.
 </div>
 </div>
 
@@ -151,5 +193,13 @@ You have the right to request access, correction, or deletion of your personal d
 </footer>
 
 </main>
+<script>
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById("progressBar").style.width = progress + "%";
+});
+</script>
 </body>
 </html>
