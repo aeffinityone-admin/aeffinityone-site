@@ -19,7 +19,7 @@
     }
 
     .container {
-      max-width: 960px;
+      max-width: 760px;
     }
 
     .hero,
@@ -27,12 +27,12 @@
     .mission,
     .safety,
     .contact {
-      padding: 3.5rem 0;
+      padding: 2.75rem 0;
       border-bottom: 1px solid rgba(255, 215, 0, 0.16);
     }
 
     .hero {
-      padding-top: 5rem;
+      padding-top: 3.5rem;
     }
 
     h1,
@@ -46,13 +46,24 @@
       margin-bottom: 1rem;
     }
 
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .logo {
+      width: 48px;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
     .tagline,
     .section-intro,
     .mission p,
     .contact p,
     footer p {
-      max-width: 720px;
-      line-height: 1.7;
+      max-width: 680px;
+      line-height: 1.75;
       color: rgba(255, 255, 255, 0.86);
     }
 
@@ -75,8 +86,8 @@
     }
 
     .product-card {
-      margin-top: 1.75rem;
-      padding: 2rem;
+      margin-top: 1.5rem;
+      padding: 1.75rem;
       border: 1px solid rgba(255, 215, 0, 0.3);
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.02);
@@ -89,16 +100,16 @@
 
     .feature-list,
     .safety-list {
-      margin: 1.25rem 0 0;
+      margin: 1rem 0 0;
       padding-left: 1.25rem;
-      line-height: 1.8;
+      line-height: 1.75;
       color: rgba(255, 255, 255, 0.92);
     }
 
     .cta-link {
       display: inline-block;
       margin-top: 1.5rem;
-      padding: 0.85rem 1.4rem;
+      padding: 0.95rem 1.5rem;
       border: 1px solid #FFD700;
       border-radius: 999px;
       text-decoration: none;
@@ -119,6 +130,58 @@
     footer {
       padding: 2rem 0 3rem;
     }
+
+    @media (max-width: 600px) {
+      .container {
+        max-width: 100%;
+      }
+
+      .hero,
+      .product-highlight,
+      .mission,
+      .safety,
+      .contact {
+        padding: 2rem 0;
+      }
+
+      .hero {
+        padding-top: 2.25rem;
+      }
+
+      .hero h1 {
+        font-size: 2.35rem;
+        margin-bottom: 0.7rem;
+      }
+
+      .tagline,
+      .section-intro,
+      .mission p,
+      .contact p,
+      footer p {
+        font-size: 0.98rem;
+        line-height: 1.7;
+      }
+
+      h2 {
+        font-size: 1.45rem;
+      }
+
+      .product-card {
+        margin-top: 1.25rem;
+        padding: 1.35rem;
+      }
+
+      .feature-list,
+      .safety-list {
+        line-height: 1.65;
+      }
+
+      .cta-link {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 1.25rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -126,6 +189,7 @@
   <main class="container">
 
     <section class="hero">
+      <img src="logo.png" class="logo" alt="Æffinityone logo" />
       <span class="section-label">Product Company</span>
       <h1>Æffinityone</h1>
       <p class="tagline">

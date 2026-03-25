@@ -8,54 +8,62 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: #0b0b0b;
   color: #f5f5f5;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 80px 24px;
+  padding: 56px 20px;
 }
 
 .hero {
   text-align: center;
-  margin-bottom: 120px;
+  margin-bottom: 72px;
+}
+
+.logo {
+  width: 48px;
+  margin-bottom: 1rem;
+  display: block;
 }
 
 .hero h1 {
-  font-size: 3.2rem;
+  font-size: 3rem;
   letter-spacing: 0.04em;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .tagline {
-  font-size: 1.2rem;
+  font-size: 1.08rem;
   opacity: 0.85;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  line-height: 1.75;
 }
 
 .disclaimer {
   font-size: 0.9rem;
   opacity: 0.6;
+  line-height: 1.65;
 }
 
 .products h2,
 .about h2 {
   font-size: 1.8rem;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
-  margin-bottom: 120px;
+  gap: 24px;
+  margin-bottom: 72px;
 }
 
 .product-card {
   background: #121212;
   border: 1px solid #1f1f1f;
-  padding: 32px;
+  padding: 28px;
   border-radius: 12px;
 }
 
@@ -67,7 +75,8 @@ body {
 .product-card p {
   font-size: 0.95rem;
   opacity: 0.85;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  line-height: 1.7;
 }
 
 .status {
@@ -79,11 +88,52 @@ body {
 
 .about {
   max-width: 700px;
-  margin-bottom: 120px;
+  margin-bottom: 72px;
 }
 
 footer {
   text-align: center;
   font-size: 0.85rem;
   opacity: 0.6;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 32px 18px;
+  }
+
+  .hero {
+    margin-bottom: 48px;
+  }
+
+  .hero h1 {
+    font-size: 2.35rem;
+    margin-bottom: 12px;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .products h2,
+  .about h2 {
+    font-size: 1.45rem;
+    margin-bottom: 24px;
+  }
+
+  .product-grid {
+    gap: 18px;
+    margin-bottom: 48px;
+  }
+
+  .product-card {
+    padding: 22px;
+  }
+
+  .about {
+    margin-bottom: 48px;
+  }
 }
