@@ -8,57 +8,173 @@
   <meta name="robots" content="noindex, nofollow">
 
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 960px;
+    }
+
+    .hero,
+    .product-highlight,
+    .mission,
+    .safety,
+    .contact {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.16);
+    }
+
+    .hero {
+      padding-top: 5rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    .tagline,
+    .section-intro,
+    .mission p,
+    .contact p,
+    footer p {
+      max-width: 720px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .product-highlight h2,
+    .section-label,
+    .feature-list li::marker,
+    .safety-list li::marker,
+    .cta-link,
+    a {
+      color: #FFD700;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .product-card {
+      margin-top: 1.75rem;
+      padding: 2rem;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .product-card p {
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .feature-list,
+    .safety-list {
+      margin: 1.25rem 0 0;
+      padding-left: 1.25rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .cta-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.85rem 1.4rem;
+      border: 1px solid #FFD700;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .cta-link:hover,
+    .cta-link:focus-visible {
+      background: #FFD700;
+      color: #000;
+    }
+
+    .contact {
+      border-bottom: 0;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+    }
+  </style>
 </head>
 <body>
 
   <main class="container">
 
     <section class="hero">
+      <span class="section-label">Product Company</span>
       <h1>Æffinityone</h1>
       <p class="tagline">
-        Building modern connection platforms.<br />
-        Multiple products currently in development.
-      </p>
-      <p class="disclaimer">
-        Product names, branding, and visuals are intentionally withheld prior to launch.
+        Building modern connection platforms designed for safety, authenticity, and real interaction.
       </p>
     </section>
 
-    <section class="products">
-      <h2>Products in Development</h2>
-
-      <div class="product-grid">
-        <div class="product-card">
-          <h3>A Private Relationship Platform</h3>
-          <p>
-            Designed to support meaningful, secure, and intentional connections.
-          </p>
-          <span class="status">In active development</span>
-        </div>
-
-        <div class="product-card">
-          <h3>An Inclusive Identity-First Space</h3>
-          <p>
-            Built to celebrate authenticity, safety, and self-expression.
-          </p>
-          <span class="status">Internal testing phase</span>
-        </div>
-
-        <div class="product-card">
-          <h3>A Global Interest Network</h3>
-          <p>
-            Connecting people through shared passions and communities.
-          </p>
-          <span class="status">Infrastructure complete</span>
-        </div>
+    <section class="product-highlight">
+      <span class="section-label">Flagship Platform</span>
+      <h2>Amouraéx</h2>
+      <div class="product-card">
+        <p class="section-intro">
+          A private relationship platform focused on meaningful connections, user safety, and intentional interaction.
+        </p>
+        <ul class="feature-list">
+          <li>Real profile verification system</li>
+          <li>Built-in safety tools and moderation</li>
+          <li>Privacy-first design</li>
+          <li>Messaging, voice, and media sharing</li>
+          <li>Global and local discovery</li>
+        </ul>
+        <a class="cta-link" href="amouraex.html">Learn More</a>
       </div>
     </section>
 
-    <section class="about">
-      <h2>About the Studio</h2>
+    <section class="mission">
+      <span class="section-label">Why We Build</span>
+      <h2>Our Mission</h2>
       <p>
-        Æffinityone is a product studio focused on building thoughtful,
-        privacy-first digital platforms.
+        We build platforms that prioritize real people over algorithms — where connection is intentional, not accidental.
+      </p>
+    </section>
+
+    <section class="safety">
+      <span class="section-label">Trust & Protection</span>
+      <h2>Safety First</h2>
+      <ul class="safety-list">
+        <li>Reporting and moderation systems</li>
+        <li>Profile verification options</li>
+        <li>Privacy controls</li>
+      </ul>
+    </section>
+
+    <section class="contact">
+      <span class="section-label">Contact</span>
+      <h2>Get in Touch</h2>
+      <p>
+        For company, product, or partnership inquiries, contact
+        <a href="mailto:admin@aeffinityone.com">admin@aeffinityone.com</a>.
       </p>
     </section>
 
