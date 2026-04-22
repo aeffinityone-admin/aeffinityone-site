@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Æffinityone Beta Program</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: #111;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.08);
+    }
+
+    h1 {
+      color: gold;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    p {
+      color: #aaa;
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: none;
+      background: #1c1c1c;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: 1px solid gold;
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      color: #ccc;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .checkbox input {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .small-text {
+      font-size: 12px;
+      color: #777;
+      margin-top: -10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: gold;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="card">
+
+      <h1>Æffinityone Beta Access</h1>
+      <p>Apply for early access to upcoming platforms and help shape the future of our ecosystem.</p>
+
+      <form action="https://formspree.io/f/mlgapaap" method="POST">
+
+        <input type="hidden" name="_subject" value="New Æffinityone Beta Application">
+        <input type="hidden" name="_next" value="https://aeffinityone.com/thank-you.html">
+
+        <input type="text" name="name" placeholder="Full Name" required />
+
+        <input type="email" name="email" placeholder="Email Address" required />
+
+        <select name="device" required>
+          <option value="">Primary Device</option>
+          <option>iPhone</option>
+          <option>Android</option>
+          <option>Other</option>
+        </select>
+
+        <textarea name="reason" placeholder="Why do you want to be part of the beta program?" required></textarea>
+
+        <div class="checkbox">
+          <input type="checkbox" required />
+          <span>I agree to participate voluntarily and respect confidentiality requirements.</span>
+        </div>
+
+        <div class="small-text">
+          Participation is voluntary and unpaid. Selected testers may receive early access benefits.
+        </div>
+
+        <button type="submit">Apply for Access</button>
+
+      </form>
+
+    </div>
+  </div>
+
+</body>
+</html>
