@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Us - Æffinityone</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 560px;
+      background: #111;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.08);
+    }
+
+    h1 {
+      color: gold;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    p {
+      color: #aaa;
+      margin-bottom: 22px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: none;
+      background: #1c1c1c;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: 1px solid gold;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: #ccc;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .checkbox input {
+      width: auto;
+      margin: 3px 0 0;
+    }
+
+    .small-text {
+      font-size: 12px;
+      color: #777;
+      margin-top: -8px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .pill {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      color: gold;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    button,
+    .back-link {
+      width: 100%;
+      padding: 14px;
+      background: gold;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.2s;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    button:hover,
+    .back-link:hover {
+      opacity: 0.9;
+    }
+
+    .secondary-link {
+      display: inline-block;
+      margin-top: 14px;
+      color: gold;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="card">
+      <span class="pill">Join Æffinityone</span>
+      <h1>Work With Us</h1>
+      <p>
+        We’re building the future of modern connection products and we’re open to hearing from talented people who want to help shape it early.
+      </p>
+      <p>
+        Use this form if you’re interested in joining as a full-time hire, contractor, collaborator, advisor, moderator, or early team member.
+      </p>
+
+      <form action="https://formspree.io/f/mlgapaap" method="POST">
+        <input type="hidden" name="_subject" value="New Æffinityone Join Us Submission">
+        <input type="hidden" name="_next" value="http://127.0.0.1:8123/thank-you.html">
+
+        <input type="text" name="name" placeholder="Full Name" required />
+
+        <input type="email" name="email" placeholder="Email Address" required />
+
+        <input type="text" name="location" placeholder="City / Country or Time Zone" />
+
+        <select name="interest" required>
+          <option value="">What are you interested in?</option>
+          <option>Full-time role</option>
+          <option>Part-time role</option>
+          <option>Contract / freelance work</option>
+          <option>Advisory role</option>
+          <option>Moderation / operations</option>
+          <option>Marketing / growth</option>
+          <option>Design / product</option>
+          <option>Engineering / technical</option>
+        </select>
+
+        <textarea name="background" placeholder="Tell us what you do, what you’d want to help with, and why you want to join Æffinityone." required></textarea>
+
+        <input type="text" name="links" placeholder="Portfolio, LinkedIn, GitHub, website, or social link" />
+
+        <div class="checkbox">
+          <input type="checkbox" required />
+          <span>I understand this is an interest form and that submitting it does not guarantee a role, reply, or offer.</span>
+        </div>
+
+        <div class="small-text">
+          We’re early-stage, so opportunities may vary over time. If there’s a fit, we’ll follow up directly.
+        </div>
+
+        <button type="submit">Send Interest</button>
+      </form>
+
+      <a class="secondary-link" href="index.html">Back to company site</a>
+    </div>
+  </div>
+
+</body>
+</html>

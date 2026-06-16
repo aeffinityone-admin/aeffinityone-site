@@ -31,6 +31,8 @@
 
     .hero,
     .product-highlight,
+    .services,
+    .join-us,
     .mission,
     .safety,
     .contact {
@@ -126,6 +128,221 @@
       background: rgba(255, 255, 255, 0.02);
     }
 
+    .amouraex-showcase {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+      gap: 1.5rem;
+      align-items: center;
+      width: min(860px, calc(100vw - 40px));
+      margin-top: 1.5rem;
+      margin-left: 50%;
+      padding: 1.75rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 211, 61, 0.28);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 92% 12%, rgba(255, 211, 61, 0.13), transparent 32%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      transform: translateX(-50%);
+    }
+
+    .amouraex-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .amouraex-copy h3 {
+      margin: 0 0 0.8rem;
+      font-size: 1.65rem;
+      letter-spacing: 0.01em;
+    }
+
+    .amouraex-copy p {
+      margin: 0;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .amouraex-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-top: 1.2rem;
+    }
+
+    .amouraex-point {
+      min-height: 74px;
+      padding: 0.8rem 0.9rem;
+      border: 1px solid rgba(255, 215, 0, 0.18);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+      font-size: 0.92rem;
+    }
+
+    .amouraex-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.35rem;
+    }
+
+    .amouraex-actions .cta-link {
+      margin-top: 0;
+    }
+
+    .cta-link.primary {
+      background: #FFD700;
+      color: #000;
+      box-shadow: 0 14px 30px rgba(255, 215, 0, 0.14);
+    }
+
+    .cta-link.primary:hover,
+    .cta-link.primary:focus-visible {
+      background: #ffe66d;
+      color: #000;
+    }
+
+    .amouraex-device-wrap {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 390px;
+    }
+
+    .amouraex-device-glow {
+      position: absolute;
+      width: 72%;
+      height: 42%;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255, 211, 61, 0.2), transparent 70%);
+      filter: blur(20px);
+    }
+
+    .amouraex-device {
+      position: relative;
+      width: min(100%, 235px);
+      padding: 12px;
+      border: 1px solid rgba(255, 211, 61, 0.28);
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(22, 22, 22, 0.98), rgba(4, 4, 4, 0.98));
+      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.34);
+      z-index: 2;
+    }
+
+    .amouraex-screen {
+      min-height: 350px;
+      padding: 16px 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 211, 61, 0.13), transparent 40%),
+        linear-gradient(180deg, #080808 0%, #121212 100%);
+    }
+
+    .amouraex-notch {
+      width: 76px;
+      height: 14px;
+      margin: 0 auto 15px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .amouraex-app-logo {
+      width: 58px;
+      margin: 0 auto 10px;
+      filter: drop-shadow(0 0 10px rgba(255, 211, 61, 0.2));
+    }
+
+    .amouraex-app-name {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    .amouraex-app-subtitle {
+      max-width: 180px;
+      margin: 0.55rem auto 0;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.55;
+      font-size: 0.82rem;
+    }
+
+    .amouraex-mini-card {
+      margin-top: 1rem;
+      padding: 0.9rem;
+      border: 1px solid rgba(255, 211, 61, 0.2);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .amouraex-mini-card strong {
+      display: block;
+      color: #FFD700;
+      font-size: 0.95rem;
+    }
+
+    .amouraex-mini-card span {
+      display: block;
+      margin-top: 0.3rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.5;
+      font-size: 0.78rem;
+    }
+
+    .amouraex-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+
+    .amouraex-chip {
+      padding: 0.42rem 0.58rem;
+      border: 1px solid rgba(255, 211, 61, 0.24);
+      border-radius: 999px;
+      color: #FFD700;
+      background: rgba(255, 211, 61, 0.055);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 1.2rem;
+    }
+
+    .service-card {
+      min-height: 188px;
+      padding: 1.2rem;
+      border: 1px solid rgba(255, 215, 0, 0.24);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .service-card h3 {
+      margin: 0 0 0.65rem;
+      font-size: 1.05rem;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.65;
+      font-size: 0.94rem;
+    }
+
+    .service-actions {
+      margin-top: 1.35rem;
+    }
+
     .product-card p {
       line-height: 1.7;
       color: rgba(255, 255, 255, 0.86);
@@ -156,6 +373,14 @@
       color: #000;
     }
 
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
     .contact {
       border-bottom: 0;
     }
@@ -171,6 +396,8 @@
 
       .hero,
       .product-highlight,
+      .services,
+      .join-us,
       .mission,
       .safety,
       .contact {
@@ -220,6 +447,45 @@
         padding: 1.35rem;
       }
 
+      .amouraex-showcase {
+        grid-template-columns: 1fr;
+        padding: 1.25rem;
+        border-radius: 18px;
+      }
+
+      .amouraex-copy h3 {
+        font-size: 1.35rem;
+      }
+
+      .amouraex-points {
+        grid-template-columns: 1fr;
+      }
+
+      .amouraex-point {
+        min-height: auto;
+      }
+
+      .amouraex-actions .cta-link {
+        margin-top: 0;
+      }
+
+      .amouraex-device-wrap {
+        min-height: auto;
+        padding-top: 0.35rem;
+      }
+
+      .amouraex-device {
+        width: min(100%, 250px);
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: auto;
+      }
+
       .feature-list,
       .safety-list {
         line-height: 1.65;
@@ -229,6 +495,10 @@
         width: 100%;
         text-align: center;
         padding: 1rem 1.25rem;
+      }
+
+      .hero-actions {
+        gap: 10px;
       }
     }
   </style>
@@ -247,7 +517,9 @@
 
       </p>
 
-      <a class="cta-link" href="beta.html">Apply for Beta Access</a>
+      <div class="hero-actions">
+        <a class="cta-link" href="beta.html">Apply for Beta Access</a>
+      </div>
 
 
 </section>
@@ -260,20 +532,111 @@
         <img src="logo.png" class="product-logo" alt="Amouraéx logo" />
         <h2>Amouraéx</h2>
       </div>
+      <div class="amouraex-showcase">
+        <div class="amouraex-copy">
+          <h3>Real interaction. Better discovery. More than swiping.</h3>
+          <p>
+            Amouraéx is the company’s flagship social connection platform,
+            built around moments, messaging, profile discovery, and guided
+            social experiences designed for safer, more expressive interaction.
+          </p>
+
+          <div class="amouraex-points">
+            <div class="amouraex-point">Share real-time moments that bring daily context into discovery.</div>
+            <div class="amouraex-point">Explore local and global connection paths as the platform grows.</div>
+            <div class="amouraex-point">Message through text, voice, and media in one native-feeling flow.</div>
+            <div class="amouraex-point">Use reporting, moderation, and account controls built into the experience.</div>
+          </div>
+
+          <div class="amouraex-actions">
+            <a class="cta-link primary" href="https://play.google.com/store/apps/details?id=com.ray.amouraex_app">Open Google Play</a>
+            <a class="cta-link" href="amouraex.html">Learn More</a>
+          </div>
+        </div>
+
+        <div class="amouraex-device-wrap" aria-hidden="true">
+          <div class="amouraex-device-glow"></div>
+          <div class="amouraex-device">
+            <div class="amouraex-screen">
+              <div class="amouraex-notch"></div>
+              <img class="amouraex-app-logo" src="logo.png" alt="" />
+              <div class="amouraex-app-name">Amouraéx</div>
+              <p class="amouraex-app-subtitle">
+                A black-and-gold connection experience built around safety and real expression.
+              </p>
+              <div class="amouraex-mini-card">
+                <strong>Discover differently</strong>
+                <span>Profiles, moments, and activity-based entry points in one platform.</span>
+                <div class="amouraex-chips">
+                  <span class="amouraex-chip">Moments</span>
+                  <span class="amouraex-chip">Blind Date</span>
+                  <span class="amouraex-chip">Premium</span>
+                </div>
+              </div>
+              <div class="amouraex-mini-card">
+                <strong>Trust matters</strong>
+                <span>Verification, reporting, and safety resources support healthier interaction.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</section>
+
+
+
+    <section class="services">
+      <span class="section-label">Services</span>
+      <h2>App & Web App Development</h2>
+      <p class="section-intro">
+        Beyond our own products, Æffinityone helps founders, creators, and
+        small teams turn product ideas into usable mobile apps, web apps, and
+        launch-ready digital experiences.
+      </p>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>Mobile Apps</h3>
+          <p>
+            iOS and Android app experiences built around real user workflows,
+            product clarity, and release readiness.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>Web Apps</h3>
+          <p>
+            Browser-based apps, dashboards, portals, and installable web app
+            experiences for teams that need access fast.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>Launch Support</h3>
+          <p>
+            Help with product structure, privacy pages, store readiness,
+            rollout planning, and early-stage refinement.
+          </p>
+        </div>
+      </div>
+      <div class="service-actions">
+        <a class="cta-link" href="mailto:admin@aeffinityone.com?subject=App%20Development%20Inquiry">Start a Project</a>
+      </div>
+
+</section>
+
+
+
+    <section class="join-us">
+      <span class="section-label">Join Us</span>
       <div class="product-card">
         <p class="section-intro">
-          A modern social connection platform focused on meaningful interactions, user safety, and real-world expression.
-
+          We’re building early and looking for thoughtful people who care about product, trust, and real connection.
         </p>
-
         <ul class="feature-list">
-          <li>Real profile verification system</li>
-          <li>Built-in safety tools and moderation</li>
-          <li>Privacy-first design</li>
-          <li>Messaging, voice, and media sharing</li>
-          <li>Global and local discovery</li>
+          <li>Early-stage, mission-driven work</li>
+          <li>Remote-friendly and flexible opportunities</li>
+          <li>Open to full-time, part-time, contract, and advisor interest</li>
         </ul>
-        <a class="cta-link" href="amouraex.html">Learn More</a>
+        <a class="cta-link" href="join-us.html">Apply to Join Us</a>
       </div>
 
 </section>
@@ -329,6 +692,7 @@
       <p>
         <a href="privacy.html">Privacy Policy</a> |
         <a href="terms.html">Terms of Service</a> |
+        <a href="join-us.html">Join Us</a> |
         <a href="community-guidelines.html">Community Guidelines</a> |
         <a href="safety.html">Safety & Reporting</a> |
         <a href="child-safety.html">Child Safety</a> |

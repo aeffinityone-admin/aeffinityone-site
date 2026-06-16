@@ -11,20 +11,35 @@
   <style>
     :root {
       color-scheme: dark;
+      --bg: #000;
+      --panel: rgba(255, 255, 255, 0.025);
+      --panel-strong: rgba(255, 255, 255, 0.045);
+      --gold: #FFD700;
+      --gold-soft: rgba(255, 215, 0, 0.16);
+      --gold-border: rgba(255, 215, 0, 0.28);
+      --text: #fff;
+      --muted: rgba(255, 255, 255, 0.76);
+      --muted-strong: rgba(255, 255, 255, 0.88);
     }
 
-    body {
-      background: #000;
-      color: #fff;
+    * {
+      box-sizing: border-box;
     }
 
     html,
     body {
+      margin: 0;
       overflow-x: hidden;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(255, 215, 0, 0.09), transparent 26%),
+        radial-gradient(circle at 100% 18%, rgba(255, 215, 0, 0.07), transparent 28%),
+        var(--bg);
+      color: var(--text);
     }
 
     .container {
-      max-width: 720px;
+      width: min(100%, 960px);
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -33,12 +48,10 @@
     .hero,
     .overview,
     .features,
-    .privacy,
-    .subscriptions,
-    .availability,
+    .details,
     .support {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid rgba(255, 215, 0, 0.16);
+      padding: 2.75rem 0;
+      border-bottom: 1px solid var(--gold-soft);
     }
 
     .top-nav {
@@ -47,97 +60,253 @@
     }
 
     .hero {
-      margin-bottom: 0;
-      padding-top: 4.5rem;
-      text-align: center;
+      padding-top: 3.5rem;
     }
 
     h1,
-    h2 {
+    h2,
+    h3 {
+      margin: 0;
       color: #fff;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin-top: 0.45rem;
+      font-size: clamp(3rem, 8vw, 5.4rem);
+      line-height: 0.92;
     }
 
     h2 {
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
+      margin-top: 0.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.08;
     }
 
-    .logo {
-      width: 72px;
-      margin: 0 auto 1.25rem;
-      display: block;
-      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.18));
+    h3 {
+      font-size: 1.12rem;
     }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .brand h1 {
-      font-size: 2.6rem;
-      margin: 0.4rem 0;
-    }
-
-    .section-label,
     a,
-    .feature-list li::marker,
-    .cta-link {
-      color: #FFD700;
+    .section-label,
+    .feature-list li::marker {
+      color: var(--gold);
     }
 
     .section-label {
       display: inline-block;
       margin-bottom: 0.85rem;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.82rem;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
-    .tagline,
-    .overview p,
-    .privacy p,
-    .subscriptions p,
-    .availability p,
-    .support p,
-    footer p {
-      max-width: 680px;
-      line-height: 1.75;
-      color: rgba(255, 255, 255, 0.86);
-    }
-
-    .feature-card {
-      margin-top: 1.25rem;
-      padding: 1.75rem;
-      border: 1px solid rgba(255, 215, 0, 0.3);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    .feature-list {
-      padding-left: 1.25rem;
-      line-height: 1.75;
-      color: rgba(255, 255, 255, 0.92);
-    }
-
     .cta-link {
-      display: inline-block;
-      padding: 0.95rem 1.5rem;
-      border: 1px solid #FFD700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.92rem 1.35rem;
+      border: 1px solid var(--gold);
       border-radius: 999px;
+      color: var(--gold);
       text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.2s ease, color 0.2s ease;
+      font-weight: 700;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     }
 
     .cta-link:hover,
     .cta-link:focus-visible {
-      background: #FFD700;
+      transform: translateY(-1px);
+      background: var(--gold);
       color: #000;
+    }
+
+    .cta-link.primary {
+      background: var(--gold);
+      color: #000;
+      box-shadow: 0 14px 30px rgba(255, 215, 0, 0.15);
+    }
+
+    .cta-link.primary:hover,
+    .cta-link.primary:focus-visible {
+      background: #ffe66d;
+      color: #000;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .logo {
+      width: 72px;
+      display: block;
+      filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.2));
+    }
+
+    .tagline {
+      max-width: 620px;
+      margin: 1.2rem 0 0;
+      color: var(--muted-strong);
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .device-wrap {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 470px;
+    }
+
+    .device-glow {
+      position: absolute;
+      width: 76%;
+      height: 48%;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent 70%);
+      filter: blur(24px);
+    }
+
+    .device {
+      position: relative;
+      width: min(100%, 285px);
+      padding: 14px;
+      border: 1px solid var(--gold-border);
+      border-radius: 34px;
+      background: linear-gradient(180deg, rgba(22, 22, 22, 0.98), rgba(4, 4, 4, 0.98));
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.36);
+      z-index: 2;
+    }
+
+    .screen {
+      min-height: 425px;
+      padding: 18px 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at top right, rgba(255, 215, 0, 0.14), transparent 40%),
+        linear-gradient(180deg, #080808 0%, #121212 100%);
+    }
+
+    .notch {
+      width: 88px;
+      height: 16px;
+      margin: 0 auto 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .app-logo {
+      width: 64px;
+      margin: 0 auto 12px;
+      filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.2));
+    }
+
+    .app-name {
+      text-align: center;
+      font-size: 1.55rem;
+      font-weight: 800;
+    }
+
+    .app-subtitle {
+      max-width: 210px;
+      margin: 0.6rem auto 0;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.86rem;
+    }
+
+    .mini-card {
+      margin-top: 1rem;
+      padding: 0.95rem;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .mini-card strong {
+      display: block;
+      color: var(--gold);
+      font-size: 0.96rem;
+    }
+
+    .mini-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.8rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+
+    .chip {
+      padding: 0.42rem 0.58rem;
+      border: 1px solid rgba(255, 215, 0, 0.24);
+      border-radius: 999px;
+      color: var(--gold);
+      background: rgba(255, 215, 0, 0.055);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .section-copy {
+      max-width: 720px;
+      margin: 1rem 0 0;
+      color: var(--muted-strong);
+      line-height: 1.8;
+      font-size: 1.02rem;
+    }
+
+    .feature-grid,
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .feature-card,
+    .detail-card {
+      padding: 1.25rem;
+      border: 1px solid var(--gold-border);
+      border-radius: 18px;
+      background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+    }
+
+    .feature-card p,
+    .detail-card p,
+    .support p,
+    footer p {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .feature-list {
+      margin: 1rem 0 0;
+      padding-left: 1.2rem;
+      color: var(--muted-strong);
+      line-height: 1.75;
     }
 
     .support,
@@ -150,24 +319,22 @@
       text-align: center;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 760px) {
       .container {
-        max-width: 100%;
+        width: min(100%, 430px);
       }
 
       .top-nav,
       .hero,
       .overview,
       .features,
-      .privacy,
-      .subscriptions,
-      .availability,
+      .details,
       .support {
         padding: 2rem 0;
       }
 
       .top-nav {
-        padding-top: 0.5rem;
+        padding-top: 0.65rem;
         padding-bottom: 1rem;
       }
 
@@ -175,47 +342,58 @@
         padding-top: 2rem;
       }
 
-      .hero h1 {
-        font-size: 2.2rem;
-        margin-bottom: 0.7rem;
+      .hero-grid,
+      .feature-grid,
+      .detail-grid {
+        grid-template-columns: 1fr;
       }
 
-      .brand h1 {
-        font-size: 2.2rem;
+      .hero-grid {
+        gap: 1.5rem;
       }
 
       .logo {
         width: 64px;
       }
 
+      h1 {
+        font-size: clamp(3rem, 16vw, 4.2rem);
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
       .tagline,
-      .overview p,
-      .privacy p,
-      .subscriptions p,
-      .availability p,
-      .support p,
-      footer p {
+      .section-copy {
         font-size: 0.98rem;
         line-height: 1.7;
       }
 
-      h2 {
-        font-size: 1.45rem;
-      }
-
-      .feature-card {
-        margin-top: 1rem;
-        padding: 1.35rem;
-      }
-
-      .feature-list {
-        line-height: 1.65;
+      .hero-actions,
+      .top-nav {
+        gap: 0.7rem;
       }
 
       .cta-link {
         width: 100%;
-        text-align: center;
-        padding: 1rem 1.25rem;
+      }
+
+      .device-wrap {
+        min-height: auto;
+      }
+
+      .device {
+        width: min(100%, 280px);
+      }
+
+      .screen {
+        min-height: 410px;
+      }
+
+      .feature-card,
+      .detail-card {
+        padding: 1.1rem;
       }
     }
   </style>
@@ -229,75 +407,153 @@
     </section>
 
     <section class="hero">
-      <div class="brand">
-        <img src="logo.png" class="logo" alt="Æffinityone logo" />
-        <h1>Amouraéx</h1>
-        <span class="section-label">Social Connection Platform</span>
+      <div class="hero-grid">
+        <div>
+          <img src="logo.png" class="logo" alt="Amouraéx logo" />
+          <span class="section-label">Social Connection Platform</span>
+          <h1>Amouraéx</h1>
+          <p class="tagline">
+            Real interaction. Better discovery. More than swiping. Amouraéx
+            blends real-time expression, local and worldwide discovery, guided
+            activity experiences, and intentional communication into one
+            experience designed to feel more human.
+          </p>
+          <div class="hero-actions">
+            <a class="cta-link primary" href="https://play.google.com/store/apps/details?id=com.ray.amouraex_app">Open Google Play</a>
+            <a class="cta-link" href="mailto:amouraexhelp@gmail.com">Contact Support</a>
+          </div>
+        </div>
+
+        <div class="device-wrap" aria-hidden="true">
+          <div class="device-glow"></div>
+          <div class="device">
+            <div class="screen">
+              <div class="notch"></div>
+              <img class="app-logo" src="logo.png" alt="" />
+              <div class="app-name">Amouraéx</div>
+              <p class="app-subtitle">
+                A black-and-gold connection experience built around safety and real expression.
+              </p>
+              <div class="mini-card">
+                <strong>Discover differently</strong>
+                <span>Profiles, moments, and activity-based entry points in one platform.</span>
+                <div class="chips">
+                  <span class="chip">Moments</span>
+                  <span class="chip">Blind Date</span>
+                  <span class="chip">Premium</span>
+                </div>
+              </div>
+              <div class="mini-card">
+                <strong>Trust matters</strong>
+                <span>Verification, reporting, and safety resources support healthier interaction.</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="tagline">
-        Share your world. Discover theirs.
-      </p>
     </section>
 
     <section class="overview">
       <span class="section-label">Overview</span>
-      <h2>What Makes Amouraéx Different</h2>
-      <p>
-        Amouraéx is a modern social connection platform that goes beyond profiles. Instead of endless swiping, users connect through real-time moments, meaningful interactions, and expressive identity. It combines social content, discovery, and messaging into one seamless experience designed to feel natural and real.
+      <h2>Share your world. Discover theirs.</h2>
+      <p class="section-copy">
+        Amouraéx is a modern social connection platform that goes beyond static
+        profiles and endless swiping. It gives people more ways to be seen,
+        more ways to discover others, and more ways to begin conversations with
+        context instead of pressure.
       </p>
     </section>
 
     <section class="features">
       <span class="section-label">Features</span>
-      <h2>Core Features</h2>
+      <h2>Core experiences inside Amouraéx</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Moments</h3>
+          <p>Share real-time photos that disappear after 24 hours and bring daily life into discovery.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Profile Discovery</h3>
+          <p>Explore local and global users based on plan access, preferences, and discovery settings.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Messaging</h3>
+          <p>Communicate through text, voice, and media in a flow designed to feel expressive and immediate.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Guided Experiences</h3>
+          <p>Use Gaming Date, Blind Date, Date Wheel, and compatibility-led experiences to start differently.</p>
+        </div>
+      </div>
+
       <div class="feature-card">
+        <h3>Additional Platform Features</h3>
         <ul class="feature-list">
-          <li>Moments: Share real-time photos that disappear after 24 hours</li>
-          <li>Profile discovery across local and global users</li>
-          <li>Messaging with text, voice, and media</li>
+          <li>Compatibility Quiz experiences designed around relationship goals and personality fit</li>
           <li>Profile verification system</li>
-          <li>Built-in safety tools (report, block, moderation)</li>
+          <li>Spotlight boosts and recent profile viewer features on higher tiers</li>
+          <li>Built-in safety tools including report, block, and moderation</li>
           <li>Privacy controls for visibility and communication</li>
         </ul>
       </div>
     </section>
 
-    <section class="privacy">
-      <span class="section-label">Privacy</span>
-      <h2>Privacy & Control</h2>
-      <p>
-        Users have control over their experience, including who can view their profile, read receipts, and online visibility.
-      </p>
-    </section>
-
-    <section class="subscriptions">
-      <span class="section-label">Plans</span>
-      <h2>Subscriptions</h2>
-      <p>
-        Amouraéx offers optional Plus and Premium subscriptions that enhance discovery, messaging, and visibility features.
-      </p>
-    </section>
-
-    <section class="availability">
-      <span class="section-label">Status</span>
-      <h2>Availability</h2>
-      <p>
-        Amouraéx is currently in rollout and active development.
-      </p>
+    <section class="details">
+      <span class="section-label">Trust & Access</span>
+      <h2>Control, privacy, and reach</h2>
+      <div class="detail-grid">
+        <div class="detail-card">
+          <h3>Privacy & Control</h3>
+          <p>
+            Users have control over who can view their profile, read receipts,
+            online visibility, and how they appear across discovery, messaging,
+            and activity surfaces.
+          </p>
+        </div>
+        <div class="detail-card">
+          <h3>Subscriptions</h3>
+          <p>
+            Optional Plus and Premium subscriptions expand discovery, messaging,
+            activity access, visibility tools, and geographic reach.
+          </p>
+        </div>
+        <div class="detail-card">
+          <h3>Plus</h3>
+          <p>
+            Plus is designed for stronger in-country access and deeper local
+            discovery.
+          </p>
+        </div>
+        <div class="detail-card">
+          <h3>Premium</h3>
+          <p>
+            Premium unlocks worldwide messaging and broader global activity
+            discovery.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="support">
-      <span class="section-label">Help</span>
-      <h2>Support</h2>
+      <span class="section-label">Status & Help</span>
+      <h2>Availability</h2>
       <p>
-        For support and general inquiries, contact
+        Amouraéx is currently in rollout and active development. For support
+        and general inquiries, contact
         <a href="mailto:amouraexhelp@gmail.com">amouraexhelp@gmail.com</a>.
       </p>
+      <div class="hero-actions">
+        <a class="cta-link primary" href="https://play.google.com/store/apps/details?id=com.ray.amouraex_app">Open Google Play</a>
+        <a class="cta-link" href="index.html">Back to Æffinityone</a>
+      </div>
     </section>
 
     <footer>
       <p>
-        <a href="index.html">Back to Home</a>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Service</a> |
+        <a href="community-guidelines.html">Community Guidelines</a> |
+        <a href="safety.html">Safety & Reporting</a>
       </p>
     </footer>
 
