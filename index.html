@@ -2,29 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Æffinityone</title>
 
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow" />
 
   <link rel="stylesheet" href="styles.css" />
   <style>
     :root {
       color-scheme: dark;
+      --bg: #000;
+      --panel: rgba(255, 255, 255, 0.025);
+      --panel-strong: rgba(255, 255, 255, 0.045);
+      --gold: #ffd700;
+      --gold-soft: rgba(255, 215, 0, 0.16);
+      --gold-border: rgba(255, 215, 0, 0.28);
+      --text: #fff;
+      --muted: rgba(255, 255, 255, 0.76);
+      --muted-strong: rgba(255, 255, 255, 0.88);
     }
 
-    body {
-      background: #000;
-      color: #fff;
+    * {
+      box-sizing: border-box;
     }
 
     html,
     body {
+      margin: 0;
       overflow-x: hidden;
+      background:
+        linear-gradient(180deg, #000 0%, #000 10%, #060500 22%, #0a0901 38%, #000 100%),
+        radial-gradient(circle at 18% 18%, rgba(255, 215, 0, 0.045), transparent 26%),
+        radial-gradient(circle at 100% 24%, rgba(255, 215, 0, 0.05), transparent 30%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: min(22vh, 180px);
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.88) 52%, rgba(0, 0, 0, 0));
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      padding-top: max(12px, env(safe-area-inset-top));
+      z-index: 1;
+    }
+
+    a,
+    .section-label,
+    .feature-list li::marker,
+    .safety-list li::marker {
+      color: var(--gold);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin-top: 0.45rem;
+      font-size: clamp(3rem, 8vw, 5.4rem);
+      line-height: 0.92;
+    }
+
+    h2 {
+      margin-top: 0.5rem;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.08;
+    }
+
+    h3 {
+      font-size: 1.12rem;
     }
 
     .container {
-      max-width: 720px;
+      width: min(100%, 960px);
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -37,132 +104,259 @@
     .safety,
     .contact {
       padding: 2.75rem 0;
-      border-bottom: 1px solid rgba(255, 215, 0, 0.16);
+      border-bottom: 1px solid var(--gold-soft);
     }
 
     .hero {
-      padding-top: 4.5rem;
-      text-align: center;
+      padding-top: clamp(3.8rem, 5.5vw, 5rem);
     }
 
-    h1,
-    h2,
-    h3 {
-      color: #fff;
-      letter-spacing: 0.02em;
+    .hero-grid,
+    .mission-grid,
+    .service-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: start;
     }
 
-    h2 {
-      margin-bottom: 1rem;
-    }
-
-    .logo {
-      width: 72px;
-      margin: 0 auto 1.25rem;
-      display: block;
-      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.18));
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
+    .hero-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
+      gap: 2rem;
       align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .brand h1 {
-      font-size: 2.6rem;
-      margin: 0.4rem 0;
-    }
-
-    .tagline,
-    .section-intro,
-    .mission p,
-    .contact p,
-    footer p {
-      max-width: 680px;
-      line-height: 1.75;
-      color: rgba(255, 255, 255, 0.86);
-    }
-
-    .product-highlight h2,
-    .section-label,
-    .feature-list li::marker,
-    .safety-list li::marker,
-    .cta-link,
-    a {
-      color: #FFD700;
     }
 
     .section-label {
       display: inline-block;
       margin-bottom: 0.85rem;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.82rem;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
-    .product-header {
+    .tagline,
+    .section-copy,
+    .contact-copy,
+    footer p {
+      margin: 1rem 0 0;
+      color: var(--muted-strong);
+      line-height: 1.8;
+      font-size: 1.02rem;
+      max-width: 700px;
+    }
+
+    .hero-actions,
+    .amouraex-actions,
+    .contact-actions {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .cta-link {
+      display: inline-flex;
       align-items: center;
-      text-align: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.92rem 1.35rem;
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 700;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .cta-link:hover,
+    .cta-link:focus-visible {
+      transform: translateY(-1px);
+      background: var(--gold);
+      color: #000;
+    }
+
+    .cta-link.primary {
+      background: var(--gold);
+      color: #000;
+      box-shadow: 0 14px 30px rgba(255, 215, 0, 0.15);
+    }
+
+    .cta-link.primary:hover,
+    .cta-link.primary:focus-visible {
+      background: #ffe66d;
+      color: #000;
+    }
+
+    .company-frame,
+    .service-card,
+    .detail-card,
+    .contact-card,
+    .join-card,
+    .product-note {
+      padding: 1.25rem;
+      border: 1px solid var(--gold-border);
+      border-radius: 18px;
+      background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+    }
+
+    .company-frame {
+      position: relative;
+      overflow: hidden;
+      min-height: 470px;
+      padding: 1.4rem;
+      border-color: rgba(255, 215, 0, 0.18);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.36);
+    }
+
+    .company-frame::before {
+      content: "";
+      position: absolute;
+      inset: auto -10% 60% 45%;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.18), transparent 68%);
+      filter: blur(14px);
+      pointer-events: none;
+    }
+
+    .company-stack {
+      position: relative;
+      display: grid;
+      gap: 1rem;
+      z-index: 1;
+    }
+
+    .company-eyebrow {
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .company-lead {
+      margin: 0;
+      color: var(--muted-strong);
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    .company-card {
+      padding: 1rem;
+      border: 1px solid rgba(255, 215, 0, 0.14);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.028);
+    }
+
+    .company-card strong {
+      display: block;
+      color: var(--gold);
+      font-size: 0.96rem;
+    }
+
+    .company-card span {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.88rem;
+    }
+
+    .company-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+
+    .company-chip {
+      padding: 0.42rem 0.58rem;
+      border: 1px solid rgba(255, 215, 0, 0.18);
+      border-radius: 999px;
+      color: var(--gold);
+      background: rgba(255, 215, 0, 0.035);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .company-status {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .company-summary {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .company-metric {
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(255, 215, 0, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .company-metric strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .company-metric span {
+      display: block;
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.45;
+    }
+
+    .product-header {
+      max-width: 720px;
     }
 
     .product-logo {
       width: 56px;
-      margin-bottom: 0.6rem;
+      display: block;
+      margin-bottom: 0.75rem;
       filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.18));
     }
 
-    .product-header h2 {
-      font-size: 2.2rem;
-    }
-
-    .product-card {
-      margin-top: 1.5rem;
-      padding: 1.75rem;
-      border: 1px solid rgba(255, 215, 0, 0.3);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.02);
-    }
-
     .amouraex-showcase {
-      position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
       gap: 1.5rem;
       align-items: center;
-      width: min(860px, calc(100vw - 40px));
       margin-top: 1.5rem;
-      margin-left: 50%;
       padding: 1.75rem;
       overflow: hidden;
-      border: 1px solid rgba(255, 211, 61, 0.28);
+      border: 1px solid rgba(255, 211, 61, 0.2);
       border-radius: 22px;
       background:
-        radial-gradient(circle at 92% 12%, rgba(255, 211, 61, 0.13), transparent 32%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+        radial-gradient(circle at 92% 14%, rgba(255, 211, 61, 0.1), transparent 32%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.038), rgba(255, 255, 255, 0.012));
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
-      transform: translateX(-50%);
     }
 
-    .amouraex-copy {
-      position: relative;
-      z-index: 2;
-    }
-
-    .amouraex-copy h3 {
+    .amouraex-copy h3,
+    .join-card h3,
+    .contact-card h3 {
       margin: 0 0 0.8rem;
-      font-size: 1.65rem;
+      font-size: 1.35rem;
       letter-spacing: 0.01em;
     }
 
-    .amouraex-copy p {
+    .amouraex-copy p,
+    .service-card p,
+    .detail-card p,
+    .contact-card p,
+    .join-card p,
+    .product-note p {
       margin: 0;
-      line-height: 1.75;
-      color: rgba(255, 255, 255, 0.86);
+      color: var(--muted);
+      line-height: 1.7;
     }
 
     .amouraex-points {
@@ -173,7 +367,6 @@
     }
 
     .amouraex-point {
-      min-height: 74px;
       padding: 0.8rem 0.9rem;
       border: 1px solid rgba(255, 215, 0, 0.18);
       border-radius: 14px;
@@ -181,29 +374,6 @@
       color: rgba(255, 255, 255, 0.9);
       line-height: 1.5;
       font-size: 0.92rem;
-    }
-
-    .amouraex-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1.35rem;
-    }
-
-    .amouraex-actions .cta-link {
-      margin-top: 0;
-    }
-
-    .cta-link.primary {
-      background: #FFD700;
-      color: #000;
-      box-shadow: 0 14px 30px rgba(255, 215, 0, 0.14);
-    }
-
-    .cta-link.primary:hover,
-    .cta-link.primary:focus-visible {
-      background: #ffe66d;
-      color: #000;
     }
 
     .amouraex-device-wrap {
@@ -215,33 +385,33 @@
 
     .amouraex-device-glow {
       position: absolute;
-      width: 72%;
-      height: 42%;
+      width: 68%;
+      height: 38%;
       border-radius: 999px;
-      background: radial-gradient(circle, rgba(255, 211, 61, 0.2), transparent 70%);
-      filter: blur(20px);
+      background: radial-gradient(circle, rgba(255, 211, 61, 0.14), transparent 72%);
+      filter: blur(22px);
     }
 
     .amouraex-device {
       position: relative;
       width: min(100%, 235px);
-      padding: 12px;
-      border: 1px solid rgba(255, 211, 61, 0.28);
+      padding: 10px;
+      border: 1px solid rgba(255, 211, 61, 0.12);
       border-radius: 30px;
-      background: linear-gradient(180deg, rgba(22, 22, 22, 0.98), rgba(4, 4, 4, 0.98));
-      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.34);
+      background: linear-gradient(180deg, rgba(16, 16, 16, 0.98), rgba(6, 6, 6, 0.98));
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
       z-index: 2;
     }
 
     .amouraex-screen {
       min-height: 350px;
-      padding: 16px 14px;
+      padding: 18px 16px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.035);
       border-radius: 22px;
       background:
-        radial-gradient(circle at top right, rgba(255, 211, 61, 0.13), transparent 40%),
-        linear-gradient(180deg, #080808 0%, #121212 100%);
+        radial-gradient(circle at top right, rgba(255, 211, 61, 0.08), transparent 42%),
+        linear-gradient(180deg, #080808 0%, #101010 100%);
     }
 
     .amouraex-notch {
@@ -255,6 +425,7 @@
     .amouraex-app-logo {
       width: 58px;
       margin: 0 auto 10px;
+      display: block;
       filter: drop-shadow(0 0 10px rgba(255, 211, 61, 0.2));
     }
 
@@ -265,31 +436,31 @@
     }
 
     .amouraex-app-subtitle {
-      max-width: 180px;
-      margin: 0.55rem auto 0;
+      max-width: 188px;
+      margin: 0.55rem auto 0.9rem;
       text-align: center;
       color: rgba(255, 255, 255, 0.7);
       line-height: 1.55;
       font-size: 0.82rem;
     }
 
-    .amouraex-mini-card {
-      margin-top: 1rem;
-      padding: 0.9rem;
-      border: 1px solid rgba(255, 211, 61, 0.2);
+    .amouraex-highlight {
+      margin-top: 0.1rem;
+      padding: 1rem;
+      border: 1px solid rgba(255, 211, 61, 0.1);
       border-radius: 16px;
-      background: rgba(255, 255, 255, 0.035);
+      background: rgba(255, 255, 255, 0.024);
     }
 
-    .amouraex-mini-card strong {
+    .amouraex-highlight strong {
       display: block;
-      color: #FFD700;
+      color: var(--gold);
       font-size: 0.95rem;
     }
 
-    .amouraex-mini-card span {
+    .amouraex-highlight span {
       display: block;
-      margin-top: 0.3rem;
+      margin-top: 0.35rem;
       color: rgba(255, 255, 255, 0.7);
       line-height: 1.5;
       font-size: 0.78rem;
@@ -298,87 +469,76 @@
     .amouraex-chips {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 0.45rem;
-      margin-top: 0.75rem;
+      margin-top: 0.95rem;
     }
 
     .amouraex-chip {
-      padding: 0.42rem 0.58rem;
-      border: 1px solid rgba(255, 211, 61, 0.24);
+      padding: 0.42rem 0.62rem;
+      border: 1px solid rgba(255, 211, 61, 0.14);
       border-radius: 999px;
-      color: #FFD700;
-      background: rgba(255, 211, 61, 0.055);
+      color: var(--gold);
+      background: rgba(255, 211, 61, 0.028);
       font-size: 0.72rem;
       font-weight: 700;
     }
 
-    .service-grid {
+    .amouraex-inline-note {
+      margin-top: 0.95rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      text-align: center;
+    }
+
+    .amouraex-inline-note strong {
+      display: block;
+      color: var(--gold);
+      font-size: 0.88rem;
+    }
+
+    .amouraex-inline-note span {
+      display: block;
+      margin-top: 0.28rem;
+      color: rgba(255, 255, 255, 0.66);
+      line-height: 1.45;
+      font-size: 0.76rem;
+    }
+
+    .service-card h3,
+    .detail-card h3 {
+      margin-bottom: 0.7rem;
+    }
+
+    .service-card,
+    .detail-card,
+    .contact-card {
+      min-height: 100%;
+    }
+
+    .join-card {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 1.2rem;
-    }
-
-    .service-card {
-      min-height: 188px;
-      padding: 1.2rem;
-      border: 1px solid rgba(255, 215, 0, 0.24);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.025);
-    }
-
-    .service-card h3 {
-      margin: 0 0 0.65rem;
-      font-size: 1.05rem;
-    }
-
-    .service-card p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.78);
-      line-height: 1.65;
-      font-size: 0.94rem;
-    }
-
-    .service-actions {
-      margin-top: 1.35rem;
-    }
-
-    .product-card p {
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.86);
+      grid-template-columns: minmax(0, 1.05fr) minmax(240px, 0.95fr);
+      gap: 1rem;
+      align-items: start;
+      margin-top: 1.5rem;
+      padding: 1.5rem;
     }
 
     .feature-list,
     .safety-list {
       margin: 1rem 0 0;
-      padding-left: 1.25rem;
+      padding-left: 1.2rem;
+      color: var(--muted-strong);
       line-height: 1.75;
-      color: rgba(255, 255, 255, 0.92);
     }
 
-    .cta-link {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.95rem 1.5rem;
-      border: 1px solid #FFD700;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.2s ease, color 0.2s ease;
+    .safety-list {
+      margin-top: 0;
     }
 
-    .cta-link:hover,
-    .cta-link:focus-visible {
-      background: #FFD700;
-      color: #000;
-    }
-
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
+    .product-note {
+      margin-top: 1rem;
     }
 
     .contact {
@@ -387,11 +547,12 @@
 
     footer {
       padding: 2rem 0 3rem;
+      text-align: center;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 760px) {
       .container {
-        max-width: 100%;
+        width: min(100%, 430px);
       }
 
       .hero,
@@ -405,100 +566,77 @@
       }
 
       .hero {
-        padding-top: 2.25rem;
+        padding-top: max(3rem, calc(env(safe-area-inset-top) + 1.65rem));
       }
 
-      .hero h1 {
-        font-size: 2.2rem;
-        margin-bottom: 0.7rem;
+      .hero-grid,
+      .mission-grid,
+      .service-grid,
+      .contact-grid,
+      .amouraex-showcase,
+      .join-card {
+        grid-template-columns: 1fr;
       }
 
-      .brand h1 {
-        font-size: 2.2rem;
-      }
-
-      .logo {
-        width: 64px;
+      .hero-grid {
+        gap: 1.5rem;
       }
 
       .product-logo {
-        width: 48px;
+        width: 64px;
       }
 
-      .product-header h2 {
-        font-size: 1.9rem;
+      h1 {
+        font-size: clamp(3rem, 16vw, 4.2rem);
+      }
+
+      h2 {
+        font-size: 1.75rem;
       }
 
       .tagline,
-      .section-intro,
-      .mission p,
-      .contact p,
+      .section-copy,
+      .contact-copy,
       footer p {
         font-size: 0.98rem;
         line-height: 1.7;
       }
 
-      h2 {
-        font-size: 1.45rem;
+      .company-frame,
+      .amouraex-showcase,
+      .join-card,
+      .service-card,
+      .detail-card,
+      .contact-card {
+        padding: 1.1rem;
       }
 
-      .product-card {
-        margin-top: 1.25rem;
-        padding: 1.35rem;
+      .company-frame,
+      .amouraex-device-wrap {
+        min-height: auto;
       }
 
-      .amouraex-showcase {
-        grid-template-columns: 1fr;
-        padding: 1.25rem;
-        border-radius: 18px;
+      .amouraex-screen {
+        padding-top: 1.15rem;
       }
 
-      .amouraex-copy h3 {
-        font-size: 1.35rem;
+      .amouraex-device {
+        padding: 8px;
+        border-color: rgba(255, 211, 61, 0.08);
       }
 
+      .company-status,
       .amouraex-points {
         grid-template-columns: 1fr;
       }
 
-      .amouraex-point {
-        min-height: auto;
-      }
-
-      .amouraex-actions .cta-link {
-        margin-top: 0;
-      }
-
-      .amouraex-device-wrap {
-        min-height: auto;
-        padding-top: 0.35rem;
-      }
-
-      .amouraex-device {
-        width: min(100%, 250px);
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-card {
-        min-height: auto;
-      }
-
-      .feature-list,
-      .safety-list {
+      .company-lead {
+        font-size: 1.02rem;
         line-height: 1.65;
       }
 
       .cta-link {
         width: 100%;
-        text-align: center;
-        padding: 1rem 1.25rem;
-      }
-
-      .hero-actions {
-        gap: 10px;
       }
     }
   </style>
@@ -508,30 +646,69 @@
   <main class="container">
 
     <section class="hero">
-      <div class="brand">
-        <h1>Æffinityone</h1>
-        <span class="section-label">Product Company</span>
+      <div class="hero-grid">
+        <div>
+          <span class="section-label">Product Company</span>
+          <h1>Æffinityone</h1>
+          <p class="tagline">
+            Building modern connection platforms, product experiences, and launch-ready digital systems designed for safety, clarity, and real interaction.
+          </p>
+          <div class="hero-actions">
+            <a class="cta-link primary" href="beta.html">Apply for Beta Access</a>
+            <a class="cta-link" href="mailto:admin@aeffinityone.com">Start a Conversation</a>
+          </div>
+        </div>
+
+        <div class="company-frame" aria-label="Company focus overview">
+          <div class="company-stack">
+            <span class="company-eyebrow">Company focus</span>
+            <p class="company-lead">
+              We build products and launch experiences that feel structured,
+              legible, and intentional from the first screen to the last.
+            </p>
+
+            <div class="company-summary">
+              <div class="company-card">
+                <strong>Flagship platform</strong>
+                <span>Amouraéx leads the portfolio with a premium black-and-gold product experience centered on safer discovery and real expression.</span>
+                <div class="company-chip-row">
+                  <span class="company-chip">Platform Design</span>
+                  <span class="company-chip">Safety First</span>
+                  <span class="company-chip">Rollout Ready</span>
+                </div>
+              </div>
+
+              <div class="company-card">
+                <strong>Built for clarity</strong>
+                <span>We shape product structure, trust signals, and calls to action so the company story feels calm instead of crowded.</span>
+              </div>
+            </div>
+
+            <div class="company-status">
+              <div class="company-metric">
+                <strong>Apps</strong>
+                <span>Mobile-first and web-based product experiences.</span>
+              </div>
+              <div class="company-metric">
+                <strong>Launch</strong>
+                <span>Support for rollout, readiness, and iteration.</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="tagline">
-        Building modern connection platforms designed for safety, authenticity, and real interaction.
-
-      </p>
-
-      <div class="hero-actions">
-        <a class="cta-link" href="beta.html">Apply for Beta Access</a>
-      </div>
-
-
-</section>
-
-
+    </section>
 
     <section class="product-highlight">
-      <span class="section-label">Flagship Platform</span>
       <div class="product-header">
         <img src="logo.png" class="product-logo" alt="Amouraéx logo" />
+        <span class="section-label">Flagship Platform</span>
         <h2>Amouraéx</h2>
+        <p class="section-copy">
+          The strongest visual language on the site starts here: a clearer product story, cleaner spacing, and a presentation that feels premium without feeling crowded.
+        </p>
       </div>
+
       <div class="amouraex-showcase">
         <div class="amouraex-copy">
           <h3>Real interaction. Better discovery. More than swiping.</h3>
@@ -564,16 +741,16 @@
               <p class="amouraex-app-subtitle">
                 A black-and-gold connection experience built around safety and real expression.
               </p>
-              <div class="amouraex-mini-card">
+              <div class="amouraex-highlight">
                 <strong>Discover differently</strong>
                 <span>Profiles, moments, and activity-based entry points in one platform.</span>
-                <div class="amouraex-chips">
-                  <span class="amouraex-chip">Moments</span>
-                  <span class="amouraex-chip">Blind Date</span>
-                  <span class="amouraex-chip">Premium</span>
-                </div>
               </div>
-              <div class="amouraex-mini-card">
+              <div class="amouraex-chips">
+                <span class="amouraex-chip">Moments</span>
+                <span class="amouraex-chip">Blind Date</span>
+                <span class="amouraex-chip">Premium</span>
+              </div>
+              <div class="amouraex-inline-note">
                 <strong>Trust matters</strong>
                 <span>Verification, reporting, and safety resources support healthier interaction.</span>
               </div>
@@ -581,19 +758,15 @@
           </div>
         </div>
       </div>
-
-</section>
-
-
+    </section>
 
     <section class="services">
       <span class="section-label">Services</span>
       <h2>App & Web App Development</h2>
-      <p class="section-intro">
-        Beyond our own products, Æffinityone helps founders, creators, and
-        small teams turn product ideas into usable mobile apps, web apps, and
-        launch-ready digital experiences.
+      <p class="section-copy">
+        Beyond our own products, Æffinityone helps founders, creators, and small teams turn product ideas into usable mobile apps, web apps, and launch-ready digital experiences.
       </p>
+
       <div class="service-grid">
         <div class="service-card">
           <h3>Mobile Apps</h3>
@@ -616,79 +789,121 @@
             rollout planning, and early-stage refinement.
           </p>
         </div>
+        <div class="service-card">
+          <h3>Product Framing</h3>
+          <p>
+            Messaging, positioning, and experience structure that make the
+            product easier to understand and easier to trust.
+          </p>
+        </div>
       </div>
-      <div class="service-actions">
+
+      <div class="contact-actions">
         <a class="cta-link" href="mailto:admin@aeffinityone.com?subject=App%20Development%20Inquiry">Start a Project</a>
       </div>
-
-</section>
-
-
+    </section>
 
     <section class="join-us">
       <span class="section-label">Join Us</span>
-      <div class="product-card">
-        <p class="section-intro">
-          We’re building early and looking for thoughtful people who care about product, trust, and real connection.
-        </p>
-        <ul class="feature-list">
-          <li>Early-stage, mission-driven work</li>
-          <li>Remote-friendly and flexible opportunities</li>
-          <li>Open to full-time, part-time, contract, and advisor interest</li>
-        </ul>
-        <a class="cta-link" href="join-us.html">Apply to Join Us</a>
+      <h2>Build with us early</h2>
+      <div class="join-card">
+        <div>
+          <h3>Thoughtful people wanted</h3>
+          <p>
+            We’re building early and looking for people who care about product,
+            trust, and real connection.
+          </p>
+        </div>
+        <div>
+          <ul class="feature-list">
+            <li>Early-stage, mission-driven work</li>
+            <li>Remote-friendly and flexible opportunities</li>
+            <li>Open to full-time, part-time, contract, and advisor interest</li>
+          </ul>
+          <div class="contact-actions">
+            <a class="cta-link" href="join-us.html">Apply to Join Us</a>
+          </div>
+        </div>
       </div>
-
-</section>
-
-
+    </section>
 
     <section class="mission">
       <span class="section-label">Why We Build</span>
-      <h2>Our Mission</h2>
-      <p>
-        We build platforms that prioritize real people over algorithms — where connection is intentional, not accidental.
-
-      </p>
-
-
-</section>
-
-
+      <h2>Human-centered by design</h2>
+      <div class="mission-grid">
+        <div class="detail-card">
+          <h3>Our Mission</h3>
+          <p>
+            We build platforms that prioritize real people over algorithms,
+            where connection is intentional, not accidental.
+          </p>
+        </div>
+        <div class="detail-card">
+          <h3>Our Position</h3>
+          <p>
+            The product should feel clear before it feels flashy. Structure,
+            trust signals, and pacing matter as much as visuals.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <section class="safety">
       <span class="section-label">Trust & Protection</span>
-      <h2>Safety First</h2>
-      <ul class="safety-list">
-        <li>Reporting and moderation systems</li>
-        <li>Profile verification options</li>
-        <li>Privacy controls</li>
-      </ul>
-
-</section>
-
-
+      <h2>Safety is part of the product</h2>
+      <div class="mission-grid">
+        <div class="detail-card">
+          <h3>Built-in protection</h3>
+          <ul class="safety-list">
+            <li>Reporting and moderation systems</li>
+            <li>Profile verification options</li>
+            <li>Privacy controls</li>
+          </ul>
+        </div>
+        <div class="product-note">
+          <h3>Why that matters</h3>
+          <p>
+            Trust is not a footer topic. It belongs inside the core experience,
+            where people make decisions about visibility, contact, and safety.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <section class="contact">
       <span class="section-label">Contact</span>
-      <h2>Get in Touch</h2>
-      <p>
+      <h2>Get in touch</h2>
+      <p class="contact-copy">
         For company, product, or partnership inquiries, contact
         <a href="mailto:admin@aeffinityone.com">admin@aeffinityone.com</a>.
-
       </p>
 
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Company & product inquiries</h3>
+          <p>
+            Reach out for partnerships, product questions, rollout conversations,
+            and development inquiries.
+          </p>
+        </div>
+        <div class="contact-card">
+          <h3>Next step</h3>
+          <p>
+            Start with the flagship product, apply for beta access, or contact
+            us directly to talk through what you are building.
+          </p>
+        </div>
+      </div>
 
-</section>
-
-
+      <div class="contact-actions">
+        <a class="cta-link primary" href="beta.html">Apply for Beta Access</a>
+        <a class="cta-link" href="mailto:admin@aeffinityone.com">Email Æffinityone</a>
+      </div>
+    </section>
 
     <footer>
-
       <p>© 2026 Æffinityone LLC</p>
-
       <p>admin@aeffinityone.com</p>
-
       <p>
         <a href="privacy.html">Privacy Policy</a> |
         <a href="terms.html">Terms of Service</a> |
@@ -697,9 +912,7 @@
         <a href="safety.html">Safety & Reporting</a> |
         <a href="child-safety.html">Child Safety</a> |
         <a href="delete-account.html">Delete Account</a>
-
       </p>
-
     </footer>
 
   </main>
