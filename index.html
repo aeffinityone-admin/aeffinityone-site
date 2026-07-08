@@ -96,6 +96,41 @@
       padding: 0 20px;
     }
 
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0 0.25rem;
+    }
+
+    .site-brand {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 850;
+    }
+
+    .site-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.55rem;
+    }
+
+    .site-nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 0.85rem;
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.018);
+    }
+
     .hero,
     .product-highlight,
     .services,
@@ -505,6 +540,100 @@
       font-size: 0.76rem;
     }
 
+    .company-product-shelf {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr) minmax(0, 0.95fr);
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .company-product-panel,
+    .company-platform-note {
+      border: 1px solid var(--gold-border);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 92% 12%, rgba(255, 211, 61, 0.1), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.24);
+    }
+
+    .company-product-panel {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.35rem;
+    }
+
+    .company-product-panel.featured-aexspace {
+      background:
+        radial-gradient(circle at 82% 12%, rgba(255, 211, 61, 0.18), transparent 34%),
+        linear-gradient(135deg, rgba(255, 211, 61, 0.12), rgba(255, 255, 255, 0.018) 38%, rgba(255, 255, 255, 0.01));
+    }
+
+    .company-product-panel.coming-soon {
+      position: relative;
+      overflow: hidden;
+      justify-content: space-between;
+      background:
+        radial-gradient(circle at 68% 10%, rgba(255, 211, 61, 0.14), transparent 34%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 211, 61, 0.035) 42%, rgba(255, 255, 255, 0.012));
+    }
+
+    .coming-soon-mark {
+      width: min(100%, 210px);
+      aspect-ratio: 1.45;
+      object-fit: cover;
+      align-self: center;
+      margin: 0.25rem 0 1rem;
+      border: 1px solid rgba(255, 211, 61, 0.16);
+      border-radius: 18px;
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+      filter: saturate(0.92) contrast(1.04);
+    }
+
+    .coming-soon-copy h3 {
+      font-size: clamp(1.75rem, 3vw, 2.7rem);
+    }
+
+    .company-product-label {
+      width: fit-content;
+      margin-bottom: 0.75rem;
+      padding: 0.38rem 0.68rem;
+      border: 1px solid rgba(255, 211, 61, 0.22);
+      border-radius: 999px;
+      color: var(--gold);
+      background: rgba(255, 211, 61, 0.05);
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .company-product-panel h3,
+    .company-platform-note h3 {
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(1.9rem, 4vw, 3.4rem);
+      line-height: 0.98;
+    }
+
+    .company-product-panel p,
+    .company-platform-note p {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .company-product-panel .cta-link {
+      margin-top: 1rem;
+    }
+
+    .company-platform-note {
+      margin-top: 1rem;
+      padding: 1.35rem;
+    }
+
     .service-card h3,
     .detail-card h3 {
       margin-bottom: 0.7rem;
@@ -550,6 +679,12 @@
       text-align: center;
     }
 
+    @media (max-width: 980px) {
+      .company-product-shelf {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 760px) {
       .container {
         width: min(100%, 430px);
@@ -574,8 +709,18 @@
       .service-grid,
       .contact-grid,
       .amouraex-showcase,
-      .join-card {
+      .join-card,
+      .company-product-shelf {
         grid-template-columns: 1fr;
+      }
+
+      .site-nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav-links {
+        justify-content: flex-start;
       }
 
       .hero-grid {
@@ -607,8 +752,14 @@
       .join-card,
       .service-card,
       .detail-card,
-      .contact-card {
+      .contact-card,
+      .company-product-panel,
+      .company-platform-note {
         padding: 1.1rem;
+      }
+
+      .company-product-panel {
+        min-height: 230px;
       }
 
       .company-frame,
@@ -644,6 +795,16 @@
 <body>
 
   <main class="container">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="site-brand" href="index.html">Æffinityone</a>
+      <div class="site-nav-links">
+        <a href="products.html">Products</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="join-us.html">Careers</a>
+        <a href="legal.html">Legal</a>
+      </div>
+    </nav>
 
     <section class="hero">
       <div class="hero-grid">
@@ -669,11 +830,11 @@
 
             <div class="company-summary">
               <div class="company-card">
-                <strong>Flagship platform</strong>
-                <span>Amouraéx leads the portfolio with a premium black-and-gold product experience centered on safer discovery and real expression.</span>
+                <strong>Product portfolio</strong>
+                <span>Amouraéx and AEXSpace show the company direction: premium experiences for connection, creativity, safety, and organized digital work.</span>
                 <div class="company-chip-row">
-                  <span class="company-chip">Platform Design</span>
-                  <span class="company-chip">Safety First</span>
+                  <span class="company-chip">Creator Tools</span>
+                  <span class="company-chip">Connection</span>
                   <span class="company-chip">Rollout Ready</span>
                 </div>
               </div>
@@ -701,105 +862,99 @@
 
     <section class="product-highlight">
       <div class="product-header">
-        <img src="logo.png" class="product-logo" alt="Amouraéx logo" />
-        <span class="section-label">Flagship Platform</span>
-        <h2>Amouraéx</h2>
+        <span class="section-label">Featured Apps</span>
+        <h2>Built under Æffinityone</h2>
         <p class="section-copy">
-          The strongest visual language on the site starts here: a clearer product story, cleaner spacing, and a presentation that feels premium without feeling crowded.
+          A growing portfolio of mobile-first products for creators, connection,
+          safety, and organized digital work.
         </p>
       </div>
 
-      <div class="amouraex-showcase">
-        <div class="amouraex-copy">
-          <h3>Real interaction. Better discovery. More than swiping.</h3>
+      <div class="company-product-shelf">
+        <article class="company-product-panel featured-aexspace">
+          <span class="company-product-label">Creator Workspace</span>
+          <h3>AEXSpace</h3>
           <p>
-            Amouraéx is the company’s flagship social connection platform,
-            built around moments, messaging, profile discovery, and guided
-            social experiences designed for safer, more expressive interaction.
+            Plan story worlds, characters, scenes, audio references, workspace notes,
+            ideas, and team access in one organized creator app.
           </p>
+          <a class="cta-link primary" href="aexspace.html">Explore AEXSpace</a>
+        </article>
 
-          <div class="amouraex-points">
-            <div class="amouraex-point">Share real-time moments that bring daily context into discovery.</div>
-            <div class="amouraex-point">Explore local and global connection paths as the platform grows.</div>
-            <div class="amouraex-point">Message through text, voice, and media in one native-feeling flow.</div>
-            <div class="amouraex-point">Use reporting, moderation, and account controls built into the experience.</div>
-          </div>
+        <article class="company-product-panel">
+          <span class="company-product-label">Social Platform</span>
+          <h3>Amouraéx</h3>
+          <p>
+            Dating and social discovery built around profiles, moments, messaging,
+            verification, safety, and premium interaction.
+          </p>
+          <a class="cta-link" href="amouraex.html">Explore Amouraéx</a>
+        </article>
 
-          <div class="amouraex-actions">
-            <a class="cta-link primary" href="https://play.google.com/store/apps/details?id=com.ray.amouraex_app">Open Google Play</a>
-            <a class="cta-link" href="amouraex.html">Learn More</a>
+        <article class="company-product-panel coming-soon">
+          <span class="company-product-label">Coming Soon</span>
+          <img class="coming-soon-mark" src="coming-soon-game-prototype.jpg" alt="Prototype mark for an upcoming Æffinityone gaming experience" />
+          <div class="coming-soon-copy">
+            <h3>A new way to game.</h3>
+            <p>
+              A mobile gaming experience from Æffinityone is in early development.
+              Built for speed, presence, and a different kind of play.
+            </p>
           </div>
-        </div>
+        </article>
+      </div>
 
-        <div class="amouraex-device-wrap" aria-hidden="true">
-          <div class="amouraex-device-glow"></div>
-          <div class="amouraex-device">
-            <div class="amouraex-screen">
-              <div class="amouraex-notch"></div>
-              <img class="amouraex-app-logo" src="logo.png" alt="" />
-              <div class="amouraex-app-name">Amouraéx</div>
-              <p class="amouraex-app-subtitle">
-                A black-and-gold connection experience built around safety and real expression.
-              </p>
-              <div class="amouraex-highlight">
-                <strong>Discover differently</strong>
-                <span>Profiles, moments, and activity-based entry points in one platform.</span>
-              </div>
-              <div class="amouraex-chips">
-                <span class="amouraex-chip">Moments</span>
-                <span class="amouraex-chip">Blind Date</span>
-                <span class="amouraex-chip">Premium</span>
-              </div>
-              <div class="amouraex-inline-note">
-                <strong>Trust matters</strong>
-                <span>Verification, reporting, and safety resources support healthier interaction.</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="company-platform-note">
+        <h3>Explore the full app catalog</h3>
+        <p>
+          See every Æffinityone app, platform, store link, and product page in
+          one place.
+        </p>
+        <a class="cta-link" href="products.html">View all apps</a>
       </div>
     </section>
 
     <section class="services">
       <span class="section-label">Services</span>
-      <h2>App & Web App Development</h2>
+      <h2>Apps, Websites & Product Systems</h2>
       <p class="section-copy">
-        Beyond our own products, Æffinityone helps founders, creators, and small teams turn product ideas into usable mobile apps, web apps, and launch-ready digital experiences.
+        Beyond our own products, Æffinityone helps founders, creators, and small teams turn ideas into websites, iOS and Android apps, web apps, and launch-ready digital experiences.
       </p>
 
       <div class="service-grid">
         <div class="service-card">
-          <h3>Mobile Apps</h3>
+          <h3>iOS + Android Apps</h3>
           <p>
-            iOS and Android app experiences built around real user workflows,
-            product clarity, and release readiness.
+            Mobile app experiences for App Store and Google Play, built around
+            real workflows, product clarity, and release readiness.
           </p>
         </div>
         <div class="service-card">
-          <h3>Web Apps</h3>
+          <h3>Websites + Landing Pages</h3>
           <p>
-            Browser-based apps, dashboards, portals, and installable web app
+            Company sites, product pages, portfolios, and launch pages that
+            clearly explain what is being built and why it matters.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>Web Apps + Dashboards</h3>
+          <p>
+            Browser-based apps, dashboards, portals, and installable web
             experiences for teams that need access fast.
           </p>
         </div>
         <div class="service-card">
-          <h3>Launch Support</h3>
+          <h3>Product + Launch Support</h3>
           <p>
-            Help with product structure, privacy pages, store readiness,
-            rollout planning, and early-stage refinement.
-          </p>
-        </div>
-        <div class="service-card">
-          <h3>Product Framing</h3>
-          <p>
-            Messaging, positioning, and experience structure that make the
-            product easier to understand and easier to trust.
+            Product structure, privacy pages, store readiness, rollout
+            planning, and early-stage refinement.
           </p>
         </div>
       </div>
 
       <div class="contact-actions">
-        <a class="cta-link" href="mailto:admin@aeffinityone.com?subject=App%20Development%20Inquiry">Start a Project</a>
+        <a class="cta-link" href="services.html">Explore Services</a>
+        <a class="cta-link" href="mailto:admin@aeffinityone.com?subject=Project%20Inquiry">Start a Project</a>
       </div>
     </section>
 
@@ -896,8 +1051,8 @@
       </div>
 
       <div class="contact-actions">
-        <a class="cta-link primary" href="beta.html">Apply for Beta Access</a>
-        <a class="cta-link" href="mailto:admin@aeffinityone.com">Email Æffinityone</a>
+        <a class="cta-link primary" href="mailto:admin@aeffinityone.com">Email Æffinityone</a>
+        <a class="cta-link" href="products.html">View Products</a>
       </div>
     </section>
 
@@ -905,6 +1060,11 @@
       <p>© 2026 Æffinityone LLC</p>
       <p>admin@aeffinityone.com</p>
       <p>
+        <a href="products.html">Products</a> |
+        <a href="services.html">Services</a> |
+        <a href="portfolio.html">Portfolio</a> |
+        <a href="legal.html">Legal Center</a> |
+        <a href="aexspace.html">AEXSpace</a> |
         <a href="privacy.html">Privacy Policy</a> |
         <a href="terms.html">Terms of Service</a> |
         <a href="join-us.html">Join Us</a> |
