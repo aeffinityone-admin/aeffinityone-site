@@ -5,7 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Æffinityone</title>
 
+  <meta name="description" content="Æffinityone builds modern connection platforms, product experiences, and launch-ready digital systems designed for safety, clarity, and real interaction." />
   <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:title" content="Æffinityone" />
+  <meta property="og:description" content="Building modern connection platforms, product experiences, and launch-ready digital systems." />
+  <meta property="og:image" content="aeffinityone-social-preview.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Æffinityone" />
+  <meta name="twitter:description" content="Building modern connection platforms, product experiences, and launch-ready digital systems." />
+  <meta name="twitter:image" content="aeffinityone-social-preview.png" />
+
+  <link rel="icon" type="image/png" href="aeffinityone-icon.png" />
+  <link rel="apple-touch-icon" href="aeffinityone-icon.png" />
 
   <link rel="stylesheet" href="styles.css" />
   <style>
@@ -79,6 +92,15 @@
       line-height: 0.92;
     }
 
+    .hero-logo {
+      display: block;
+      width: min(100%, 620px);
+      max-height: 190px;
+      margin: 0.35rem 0 0;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 30px rgba(255, 215, 0, 0.12));
+    }
+
     h2 {
       margin-top: 0.5rem;
       font-size: clamp(1.8rem, 4vw, 2.7rem);
@@ -99,15 +121,9 @@
     .site-nav {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
       gap: 1rem;
       padding: 1rem 0 0.25rem;
-    }
-
-    .site-brand {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 850;
     }
 
     .site-nav-links {
@@ -746,6 +762,12 @@
         width: 64px;
       }
 
+      .hero-logo {
+        width: min(100%, 380px);
+        max-height: 145px;
+        margin: 0.25rem auto 0;
+      }
+
       h1 {
         font-size: clamp(3rem, 16vw, 4.2rem);
       }
@@ -821,7 +843,6 @@
 
   <main class="container">
     <nav class="site-nav" aria-label="Primary navigation">
-      <a class="site-brand" href="index.html">Æffinityone</a>
       <div class="site-nav-links">
         <a href="products.html">Products</a>
         <a href="services.html">Services</a>
@@ -835,7 +856,7 @@
       <div class="hero-grid">
         <div>
           <span class="section-label">Product Company</span>
-          <h1>Æffinityone</h1>
+          <img class="hero-logo" src="aeffinityone-hero-logo.png" alt="Æffinityone" />
           <p class="tagline">
             Building modern connection platforms, product experiences, and launch-ready digital systems designed for safety, clarity, and real interaction.
           </p>
