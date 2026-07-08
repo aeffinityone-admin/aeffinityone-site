@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Thank You - Æffinityone</title>
   <link rel="stylesheet" href="styles.css" />
 
@@ -52,6 +52,13 @@
       font-weight: 700;
       background: gold;
       color: #000;
+    }
+
+    @media (max-width: 760px) {
+      .wrapper {
+        align-items: flex-start;
+        padding: max(56px, calc(env(safe-area-inset-top) + 16px)) 20px 40px;
+      }
     }
   </style>
 </head>

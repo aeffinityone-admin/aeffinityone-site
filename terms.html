@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Terms of Service - Amouraéx</title>
 <link rel="stylesheet" href="styles.css" />
 <style>
@@ -21,13 +21,13 @@ html, body {
   background: rgba(0,0,0,0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,215,0,0.2);
-  padding: 14px;
+  padding: max(14px, calc(env(safe-area-inset-top) + 14px)) 14px 14px;
   text-align: center;
   font-weight: 600;
 }
 .progress {
   position: fixed;
-  top: 0;
+  top: env(safe-area-inset-top);
   left: 0;
   height: 2px;
   background: #FFD700;
@@ -98,9 +98,9 @@ footer {
 <h2>Acceptable Use</h2>
 <ul>
 <li>No illegal activity, fraud, scams, spam, solicitation, or platform abuse.</li>
-<li>No harassment, hate speech, threats, bullying, intimidation, coercion, stalking, or abusive behavior.</li>
+<li>No harassment, hate speech, threats, bullying, intimidation, coercion, stalking, sexual violence threats, or abusive behavior.</li>
 <li>No impersonation, fake profiles, misleading information, or attempts to bypass verification or moderation.</li>
-<li>No sexually exploitative, coercive, non-consensual, unsafe, or underage-related conduct.</li>
+<li>No sexually exploitative, coercive, non-consensual, unsafe, or underage-related conduct, including threats of sexual assault or attempts to pressure someone into sexual activity.</li>
 <li>No Child Sexual Abuse and Exploitation, Child Sexual Abuse Material, grooming, sextortion, trafficking, sexualization of minors, or attempts to involve minors in the service.</li>
 <li>No attempts to scrape, reverse engineer, overload, disrupt, manipulate, or gain unauthorized access to Amouraéx or its systems.</li>
 <li>No misuse of messaging, photos, voice notes, moments, activities, reporting, blocking, subscriptions, boosts, spotlights, or discovery features.</li>
@@ -129,6 +129,7 @@ footer {
 <div class="section">
 <h2>Moderation and Enforcement</h2>
 <p>We may review, remove, restrict, limit, age-gate, suspend, force-log out, ban, or permanently delete accounts or content at our discretion to protect users, enforce these Terms, investigate abuse, respond to reports or appeals, protect children, prevent fraud, or comply with legal obligations.</p>
+<p>Threats of physical harm, sexual assault, coercion, or other severe abuse may receive immediate enforcement attention even if they occur in private messages or activity-based features.</p>
 <p>This can include review of reported content, messages, message evidence snapshots, profile data, photos, moments, verification materials, device or installation signals, purchase diagnostics, and other activity inside Amouraéx.</p>
 <div class="highlight">Severe safety violations may result in permanent account removal and reports to appropriate authorities where required or appropriate.</div>
 </div>

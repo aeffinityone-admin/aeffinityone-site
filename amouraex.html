@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Amouraéx | Æffinityone</title>
 
   <meta name="robots" content="index, follow">
@@ -30,10 +30,7 @@
     body {
       margin: 0;
       overflow-x: hidden;
-      background:
-        radial-gradient(circle at 12% 0%, rgba(255, 215, 0, 0.09), transparent 26%),
-        radial-gradient(circle at 100% 18%, rgba(255, 215, 0, 0.07), transparent 28%),
-        var(--bg);
+      background: var(--bg);
       color: var(--text);
     }
 
@@ -322,6 +319,7 @@
     @media (max-width: 760px) {
       .container {
         width: min(100%, 430px);
+        padding-top: max(56px, calc(env(safe-area-inset-top) + 16px));
       }
 
       .top-nav,
@@ -470,7 +468,7 @@
       <div class="feature-grid">
         <div class="feature-card">
           <h3>Moments</h3>
-          <p>Share real-time photos that disappear after 24 hours and bring daily life into discovery.</p>
+          <p>Share real-time photos that stay visible for up to 30 days and bring daily life into discovery.</p>
         </div>
         <div class="feature-card">
           <h3>Profile Discovery</h3>

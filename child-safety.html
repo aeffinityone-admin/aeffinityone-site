@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Child Safety - Amouraéx</title>
 
 <style>
@@ -23,14 +23,14 @@ html, body {
   background: rgba(0,0,0,0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,215,0,0.2);
-  padding: 14px;
+  padding: max(14px, calc(env(safe-area-inset-top) + 14px)) 14px 14px;
   text-align: center;
   font-weight: 600;
 }
 
 .progress {
   position: fixed;
-  top: 0;
+  top: env(safe-area-inset-top);
   height: 2px;
   background: #FFD700;
   width: 0%;

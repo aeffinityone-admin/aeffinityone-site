@@ -697,6 +697,10 @@
     }
 
     @media (max-width: 760px) {
+      main {
+        padding-top: max(56px, calc(env(safe-area-inset-top) + 16px));
+      }
+
       .container {
         width: min(100%, 430px);
       }

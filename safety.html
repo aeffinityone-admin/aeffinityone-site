@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Safety & Reporting - Amouraéx</title>
 
 <style>
@@ -23,14 +23,14 @@ html, body {
   background: rgba(0,0,0,0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,215,0,0.2);
-  padding: 14px;
+  padding: max(14px, calc(env(safe-area-inset-top) + 14px)) 14px 14px;
   text-align: center;
   font-weight: 600;
 }
 
 .progress {
   position: fixed;
-  top: 0;
+  top: env(safe-area-inset-top);
   height: 2px;
   background: #FFD700;
   width: 0%;
@@ -96,6 +96,7 @@ footer {
 <li>Report inappropriate behavior directly in the app from profiles, messages, moments, or relevant content areas</li>
 <li>Reports are reviewed by moderation</li>
 <li>Evidence may include profile details, message text, recent message snapshots, chat photos, voice-note references, uploaded media, and related account information needed for safety review</li>
+<li>Threats of physical harm, sexual assault, sexual coercion, or severe intimidation should be reported immediately</li>
 </ul>
 </div>
 
@@ -119,6 +120,7 @@ footer {
 <li>Profiles, photos, messages, voice notes, moments, reports, verification materials, and account behavior may be reviewed for safety</li>
 <li>Accounts may be warned, restricted, force-logged out, banned, or removed</li>
 <li>Identity or age verification may be requested when needed for safety, underage review, or platform integrity</li>
+<li>Severe abuse signals, including direct violent threats or sexual violence threats, may be prioritized for enforcement review</li>
 </ul>
 
 <div class="highlight">
