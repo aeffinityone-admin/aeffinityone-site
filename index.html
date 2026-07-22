@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Æffinityone</title>
 
-  <meta name="description" content="Æffinityone builds modern connection platforms, product experiences, and launch-ready digital systems designed for safety, clarity, and real interaction." />
+  <meta name="description" content="Æffinityone builds a connected ecosystem of apps, digital products, and launch-ready systems for community, creativity, entertainment, and real-world operations." />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#000000" />
   <meta property="og:title" content="Æffinityone" />
-  <meta property="og:description" content="Building modern connection platforms, product experiences, and launch-ready digital systems." />
+  <meta property="og:description" content="Building a connected ecosystem of apps, digital products, and systems for community, creativity, entertainment, and operations." />
   <meta property="og:image" content="aeffinityone-social-preview.png" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Æffinityone" />
-  <meta name="twitter:description" content="Building modern connection platforms, product experiences, and launch-ready digital systems." />
+  <meta name="twitter:description" content="Building a connected ecosystem of apps, digital products, and systems for community, creativity, entertainment, and operations." />
   <meta name="twitter:image" content="aeffinityone-social-preview.png" />
 
   <link rel="icon" type="image/png" href="aeffinityone-icon.png" />
@@ -65,6 +65,20 @@
       z-index: 0;
     }
 
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(86, 144, 255, 0.08), transparent 24%),
+        radial-gradient(circle at 82% 16%, rgba(255, 112, 166, 0.08), transparent 22%),
+        radial-gradient(circle at 58% 72%, rgba(255, 215, 0, 0.045), transparent 28%);
+      opacity: 0.9;
+      animation: siteGlowShift 18s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+
     main {
       position: relative;
       padding-top: max(12px, env(safe-area-inset-top));
@@ -99,6 +113,7 @@
       margin: 0.35rem 0 0;
       object-fit: contain;
       filter: drop-shadow(0 18px 30px rgba(255, 215, 0, 0.12));
+      animation: logoFloat 8s ease-in-out infinite;
     }
 
     h2 {
@@ -159,7 +174,9 @@
     }
 
     .hero {
+      position: relative;
       padding-top: clamp(3.8rem, 5.5vw, 5rem);
+      overflow: hidden;
     }
 
     .hero-grid,
@@ -176,6 +193,81 @@
       grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr);
       gap: 2rem;
       align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-atmosphere {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-orb,
+    .hero-ring {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(8px);
+      opacity: 0.8;
+    }
+
+    .hero-orb.orb-a {
+      top: 6%;
+      left: -4%;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(82, 144, 255, 0.22), transparent 66%);
+      animation: orbDriftA 15s ease-in-out infinite;
+    }
+
+    .hero-orb.orb-b {
+      right: 8%;
+      top: 12%;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255, 114, 169, 0.16), transparent 68%);
+      animation: orbDriftB 18s ease-in-out infinite;
+    }
+
+    .hero-orb.orb-c {
+      right: 24%;
+      bottom: 2%;
+      width: 260px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.11), transparent 70%);
+      animation: orbDriftC 14s ease-in-out infinite;
+    }
+
+    .hero-ring {
+      top: 10%;
+      right: 10%;
+      width: 220px;
+      height: 220px;
+      border: 1px solid rgba(122, 162, 255, 0.18);
+      filter: none;
+      background: none;
+      animation: slowOrbit 24s linear infinite;
+    }
+
+    .hero-starfield {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-star {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+      animation: twinkle var(--twinkle-speed, 6s) ease-in-out infinite;
     }
 
     .section-label {
@@ -259,6 +351,8 @@
       padding: 1.4rem;
       border-color: rgba(255, 215, 0, 0.18);
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.36);
+      transform-style: preserve-3d;
+      animation: frameFloat 9s ease-in-out infinite;
     }
 
     .company-frame::before {
@@ -269,6 +363,21 @@
       border-radius: 999px;
       background: radial-gradient(circle, rgba(255, 215, 0, 0.18), transparent 68%);
       filter: blur(14px);
+      pointer-events: none;
+    }
+
+    .company-frame::after {
+      content: "";
+      position: absolute;
+      inset: 12% auto auto 8%;
+      width: 160px;
+      height: 160px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01));
+      transform: rotate(-9deg);
+      opacity: 0.18;
+      animation: workspaceLayerLarge 12s ease-in-out infinite;
       pointer-events: none;
     }
 
@@ -299,6 +408,12 @@
       border: 1px solid rgba(255, 215, 0, 0.14);
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.028);
+      animation: cardFloat 10s ease-in-out infinite;
+      transform: translateZ(0);
+    }
+
+    .company-summary .company-card:nth-child(2) {
+      animation-delay: -5s;
     }
 
     .company-card strong {
@@ -348,6 +463,11 @@
       border: 1px solid rgba(255, 215, 0, 0.12);
       border-radius: 14px;
       background: rgba(255, 255, 255, 0.02);
+      animation: metricLift 9s ease-in-out infinite;
+    }
+
+    .company-status .company-metric:nth-child(2) {
+      animation-delay: -4.5s;
     }
 
     .company-metric strong {
@@ -579,6 +699,25 @@
       flex-direction: column;
       justify-content: flex-end;
       padding: 1.35rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      animation: revealUp 0.9s ease both;
+    }
+
+    .company-product-panel:hover,
+    .company-product-panel:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 62px rgba(0, 0, 0, 0.32);
+      border-color: rgba(255, 215, 0, 0.32);
+    }
+
+    .company-product-panel:nth-child(2) {
+      animation-delay: 0.12s;
+    }
+
+    .company-product-panel:nth-child(3) {
+      animation-delay: 0.24s;
     }
 
     .company-product-panel.featured-aexspace {
@@ -587,12 +726,78 @@
         linear-gradient(135deg, rgba(255, 211, 61, 0.12), rgba(255, 255, 255, 0.018) 38%, rgba(255, 255, 255, 0.01));
     }
 
+    .company-product-panel.featured-aexspace::before,
+    .company-product-panel.featured-aexspace::after {
+      content: "";
+      position: absolute;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      pointer-events: none;
+    }
+
+    .company-product-panel.featured-aexspace::before {
+      inset: 14% 12% auto auto;
+      width: 120px;
+      height: 86px;
+      transform: rotate(7deg);
+      animation: workspaceLayerA 11s ease-in-out infinite;
+    }
+
+    .company-product-panel.featured-aexspace::after {
+      inset: 28% auto auto 10%;
+      width: 96px;
+      height: 64px;
+      transform: rotate(-8deg);
+      opacity: 0.6;
+      animation: workspaceLayerB 14s ease-in-out infinite reverse;
+    }
+
     .company-product-panel.coming-soon {
       position: relative;
       overflow: hidden;
       background:
         radial-gradient(circle at 68% 10%, rgba(255, 211, 61, 0.14), transparent 34%),
         linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 211, 61, 0.035) 42%, rgba(255, 255, 255, 0.012));
+    }
+
+    .company-product-panel.coming-soon::before {
+      content: "";
+      position: absolute;
+      top: -24px;
+      right: -12px;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(118, 155, 255, 0.24);
+      border-radius: 999px;
+      opacity: 0.38;
+      animation: slowOrbit 30s linear infinite;
+      pointer-events: none;
+    }
+
+    .company-product-panel.coming-soon::after {
+      content: "";
+      position: absolute;
+      inset: auto auto 16% 12%;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(89, 137, 255, 0.14), transparent 68%);
+      filter: blur(18px);
+      animation: orbDriftB 16s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .company-product-panel:not(.featured-aexspace):not(.coming-soon)::before {
+      content: "";
+      position: absolute;
+      inset: auto 14% 18% auto;
+      width: 110px;
+      height: 110px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255, 136, 176, 0.14), transparent 68%);
+      filter: blur(16px);
+      animation: warmPulse 7s ease-in-out infinite;
+      pointer-events: none;
     }
 
     .coming-soon-mark {
@@ -605,6 +810,7 @@
       background: rgba(0, 0, 0, 0.34);
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
       filter: saturate(0.92) contrast(1.04);
+      animation: assetFloat 10s ease-in-out infinite;
     }
 
     .company-product-logo {
@@ -617,6 +823,7 @@
       background: rgba(0, 0, 0, 0.34);
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
       filter: drop-shadow(0 0 10px rgba(255, 211, 61, 0.14));
+      animation: assetFloat 9s ease-in-out infinite;
     }
 
     .coming-soon-copy h3 {
@@ -672,6 +879,20 @@
       min-height: 100%;
     }
 
+    .service-card,
+    .detail-card,
+    .join-card {
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .service-card:hover,
+    .detail-card:hover,
+    .join-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 215, 0, 0.34);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24);
+    }
+
     .join-card {
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(240px, 0.95fr);
@@ -701,9 +922,121 @@
       border-bottom: 0;
     }
 
+    .reveal-section {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     footer {
       padding: 2rem 0 3rem;
       text-align: center;
+    }
+
+    @keyframes siteGlowShift {
+      0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.85; }
+      100% { transform: translate3d(0, -1.5%, 0) scale(1.04); opacity: 1; }
+    }
+
+    @keyframes orbDriftA {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(18px, -10px, 0); }
+    }
+
+    @keyframes orbDriftB {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(-14px, 16px, 0); }
+    }
+
+    @keyframes orbDriftC {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(10px, -12px, 0) scale(1.08); }
+    }
+
+    @keyframes slowOrbit {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.18; transform: scale(0.8); }
+      50% { opacity: 0.95; transform: scale(1.35); }
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes frameFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes cardFloat {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(0, -4px, 0); }
+    }
+
+    @keyframes metricLift {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(0, -3px, 0); }
+    }
+
+    @keyframes workspaceLayerLarge {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(-9deg); }
+      50% { transform: translate3d(6px, -10px, 0) rotate(-5deg); }
+    }
+
+    @keyframes workspaceLayerA {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(7deg); }
+      50% { transform: translate3d(4px, -8px, 0) rotate(10deg); }
+    }
+
+    @keyframes workspaceLayerB {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(-8deg); }
+      50% { transform: translate3d(-5px, -6px, 0) rotate(-4deg); }
+    }
+
+    @keyframes warmPulse {
+      0%, 100% { opacity: 0.35; transform: scale(0.92); }
+      50% { opacity: 0.8; transform: scale(1.08); }
+    }
+
+    @keyframes assetFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes revealUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal-section {
+        opacity: 1;
+        transform: none;
+      }
     }
 
     @media (max-width: 980px) {
@@ -849,45 +1182,59 @@
         <a href="portfolio.html">Portfolio</a>
         <a href="join-us.html">Careers</a>
         <a href="legal.html">Legal</a>
+        <a href="contact.html">Contact</a>
       </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero reveal-section">
+      <div class="hero-atmosphere" aria-hidden="true">
+        <div class="hero-orb orb-a"></div>
+        <div class="hero-orb orb-b"></div>
+        <div class="hero-orb orb-c"></div>
+        <div class="hero-ring"></div>
+        <div class="hero-starfield">
+          <span class="hero-star" style="top: 12%; left: 16%; --twinkle-speed: 5.8s;"></span>
+          <span class="hero-star" style="top: 22%; left: 58%; --twinkle-speed: 7.1s;"></span>
+          <span class="hero-star" style="top: 18%; left: 82%; --twinkle-speed: 6.4s;"></span>
+          <span class="hero-star" style="top: 48%; left: 72%; --twinkle-speed: 5.2s;"></span>
+          <span class="hero-star" style="top: 62%; left: 22%; --twinkle-speed: 7.4s;"></span>
+          <span class="hero-star" style="top: 72%; left: 88%; --twinkle-speed: 6.7s;"></span>
+          <span class="hero-star" style="top: 78%; left: 52%; --twinkle-speed: 5.9s;"></span>
+        </div>
+      </div>
       <div class="hero-grid">
-        <div>
+        <div class="hero-copy">
           <span class="section-label">Product Company</span>
           <img class="hero-logo" src="aeffinityone-hero-logo.png" alt="Æffinityone" />
           <p class="tagline">
-            Building modern connection platforms, product experiences, and launch-ready digital systems designed for safety, clarity, and real interaction.
+            Building a connected ecosystem of apps for community, creativity,
+            culture, and real-world operations.
           </p>
-          <div class="hero-actions">
-            <a class="cta-link primary" href="beta.html">Apply for Beta Access</a>
-            <a class="cta-link" href="mailto:admin@aeffinityone.com">Start a Conversation</a>
-          </div>
         </div>
 
         <div class="company-frame" aria-label="Company focus overview">
           <div class="company-stack">
             <span class="company-eyebrow">Company focus</span>
             <p class="company-lead">
-              We build products and launch experiences that feel structured,
-              legible, and intentional from the first screen to the last.
+              We are building a connected ecosystem of apps for community,
+              creativity, entertainment, and real-world operations.
             </p>
 
             <div class="company-summary">
               <div class="company-card">
-                <strong>Product portfolio</strong>
-                <span>Amouraéx and AEXSpace show the company direction: premium experiences for connection, creativity, safety, and organized digital work.</span>
+                <strong>Ecosystem portfolio</strong>
+                <span>Our products span relationship discovery, LGBTQ+ community, creator workspaces, gaming, reflection-based communities, and workforce operations.</span>
                 <div class="company-chip-row">
+                  <span class="company-chip">Community</span>
                   <span class="company-chip">Creator Tools</span>
-                  <span class="company-chip">Connection</span>
-                  <span class="company-chip">Rollout Ready</span>
+                  <span class="company-chip">Entertainment</span>
+                  <span class="company-chip">Work Ops</span>
                 </div>
               </div>
 
               <div class="company-card">
-                <strong>Built for clarity</strong>
-                <span>We shape product structure, trust signals, and calls to action so the company story feels calm instead of crowded.</span>
+                <strong>Built for structure</strong>
+                <span>Each app is designed to stand on its own while contributing to a larger company ecosystem shaped around clarity, trust, and long-term product growth.</span>
               </div>
             </div>
 
@@ -906,13 +1253,14 @@
       </div>
     </section>
 
-    <section class="product-highlight">
+    <section class="product-highlight reveal-section">
       <div class="product-header">
         <span class="section-label">Featured Apps</span>
         <h2>Built under Æffinityone</h2>
         <p class="section-copy">
-          A growing portfolio of mobile-first products for creators, connection,
-          safety, and organized digital work.
+          Distinct products shaped under one company vision, spanning creator
+          platforms, social experiences, identity-centered community, and
+          operational systems.
         </p>
       </div>
 
@@ -925,7 +1273,6 @@
             Plan story worlds, characters, scenes, audio references, workspace notes,
             ideas, and team access in one organized creator app.
           </p>
-          <a class="cta-link primary" href="aexspace.html">Explore AEXSpace</a>
         </article>
 
         <article class="company-product-panel">
@@ -936,33 +1283,23 @@
             Dating and social discovery built around profiles, moments, messaging,
             verification, safety, and premium interaction.
           </p>
-          <a class="cta-link" href="amouraex.html">Explore Amouraéx</a>
         </article>
 
         <article class="company-product-panel coming-soon">
-          <span class="company-product-label">Coming Soon</span>
-          <img class="coming-soon-mark" src="coming-soon-game-prototype.jpg" alt="Prototype mark for an upcoming Æffinityone gaming experience" />
+          <span class="company-product-label">LGBTQ+ Community</span>
+          <img class="coming-soon-mark" src="qonstellation-icon.png" alt="Qonstellation app icon" />
           <div class="coming-soon-copy">
-            <h3>A new way to game.</h3>
+            <h3>Qonstellation</h3>
             <p>
-              A mobile gaming experience from Æffinityone is in early development.
-              Built for speed, presence, and a different kind of play.
+              A cosmic LGBTQ+ community platform for identity, events, stories,
+              safety resources, and meaningful social discovery.
             </p>
           </div>
         </article>
       </div>
-
-      <div class="company-platform-note">
-        <h3>Explore the full app catalog</h3>
-        <p>
-          See every Æffinityone app, platform, store link, and product page in
-          one place.
-        </p>
-        <a class="cta-link" href="products.html">View all apps</a>
-      </div>
     </section>
 
-    <section class="services">
+    <section class="services reveal-section">
       <span class="section-label">Services</span>
       <h2>Apps, Websites & Product Systems</h2>
       <p class="section-copy">
@@ -1000,21 +1337,18 @@
         </div>
       </div>
 
-      <div class="contact-actions">
-        <a class="cta-link" href="services.html">Explore Services</a>
-        <a class="cta-link" href="mailto:admin@aeffinityone.com?subject=Project%20Inquiry">Start a Project</a>
-      </div>
     </section>
 
-    <section class="join-us">
+    <section class="join-us reveal-section">
       <span class="section-label">Join Us</span>
       <h2>Build with us early</h2>
       <div class="join-card">
         <div>
-          <h3>Thoughtful people wanted</h3>
+          <h3>Thoughtful builders wanted</h3>
           <p>
-            We’re building early and looking for people who care about product,
-            trust, and real connection.
+            We’re shaping a long-term ecosystem and looking for people who care
+            about product quality, strong systems, and experiences that leave a
+            real mark on the people who use them.
           </p>
         </div>
         <div>
@@ -1023,35 +1357,34 @@
             <li>Remote-friendly and flexible opportunities</li>
             <li>Open to full-time, part-time, contract, and advisor interest</li>
           </ul>
-          <div class="contact-actions">
-            <a class="cta-link" href="join-us.html">Apply to Join Us</a>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="mission">
+    <section class="mission reveal-section">
       <span class="section-label">Why We Build</span>
-      <h2>Human-centered by design</h2>
+      <h2>Human-centered across the ecosystem</h2>
       <div class="mission-grid">
         <div class="detail-card">
           <h3>Our Mission</h3>
           <p>
-            We build platforms that prioritize real people over algorithms,
-            where connection is intentional, not accidental.
+            We build products that help people express themselves, find
+            community, create with intention, and navigate modern life with
+            more clarity and control.
           </p>
         </div>
         <div class="detail-card">
-          <h3>Our Position</h3>
+          <h3>Our Standard</h3>
           <p>
-            The product should feel clear before it feels flashy. Structure,
-            trust signals, and pacing matter as much as visuals.
+            Every experience should feel refined, trustworthy, and purposeful,
+            with enough structure to stand on its own and enough vision to
+            strengthen the larger ecosystem around it.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="safety">
+    <section class="safety reveal-section">
       <span class="section-label">Trust & Protection</span>
       <h2>Safety is part of the product</h2>
       <div class="mission-grid">
@@ -1066,55 +1399,25 @@
         <div class="product-note">
           <h3>Why that matters</h3>
           <p>
-            Trust is not a footer topic. It belongs inside the core experience,
-            where people make decisions about visibility, contact, and safety.
+            Trust should be felt, not buried. Whether someone is creating,
+            connecting, sharing, or managing work, protection and clarity
+            belong inside the experience itself.
           </p>
         </div>
-      </div>
-    </section>
-
-    <section class="contact">
-      <span class="section-label">Contact</span>
-      <h2>Get in touch</h2>
-      <p class="contact-copy">
-        For company, product, or partnership inquiries, contact
-        <a href="mailto:admin@aeffinityone.com">admin@aeffinityone.com</a>.
-      </p>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Company & product inquiries</h3>
-          <p>
-            Reach out for partnerships, product questions, rollout conversations,
-            and development inquiries.
-          </p>
-        </div>
-        <div class="contact-card">
-          <h3>Next step</h3>
-          <p>
-            Start with the flagship product, apply for beta access, or contact
-            us directly to talk through what you are building.
-          </p>
-        </div>
-      </div>
-
-      <div class="contact-actions">
-        <a class="cta-link primary" href="mailto:admin@aeffinityone.com">Email Æffinityone</a>
-        <a class="cta-link" href="products.html">View Products</a>
       </div>
     </section>
 
     <footer>
       <p>© 2026 Æffinityone LLC</p>
-      <p>admin@aeffinityone.com</p>
       <p>
         <a href="products.html">Products</a> |
         <a href="services.html">Services</a> |
         <a href="portfolio.html">Portfolio</a> |
         <a href="legal.html">Legal Center</a> |
+        <a href="contact.html">Contact</a> |
         <a href="aexspace.html">AEXSpace</a> |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms of Service</a> |
+        <a href="website-privacy.html">Website Privacy</a> |
+        <a href="website-terms.html">Website Terms</a> |
         <a href="join-us.html">Join Us</a> |
         <a href="community-guidelines.html">Community Guidelines</a> |
         <a href="safety.html">Safety & Reporting</a> |
@@ -1125,5 +1428,45 @@
 
   </main>
 
+  <script>
+    (() => {
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const revealSections = document.querySelectorAll(".reveal-section");
+
+      if (!reducedMotion && "IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.16 });
+
+        revealSections.forEach((section) => observer.observe(section));
+      } else {
+        revealSections.forEach((section) => section.classList.add("is-visible"));
+      }
+
+      if (reducedMotion) {
+        return;
+      }
+
+      const floatingSurfaces = document.querySelectorAll(".company-frame, .company-product-panel");
+
+      floatingSurfaces.forEach((surface) => {
+        surface.addEventListener("pointermove", (event) => {
+          const bounds = surface.getBoundingClientRect();
+          const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 8;
+          const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * -8;
+          surface.style.transform = `translateY(-4px) rotateX(${y}deg) rotateY(${x}deg)`;
+        });
+
+        surface.addEventListener("pointerleave", () => {
+          surface.style.transform = "";
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
