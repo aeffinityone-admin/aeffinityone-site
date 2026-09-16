@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Amouraéx | Æffinityone</title>
+  <meta
+    name="description"
+    content="Amouraéx is a compatibility-first dating and social discovery app with Date Sparks, live Blind Date matchmaking, verification, safety tools, and plan-aware communication."
+  />
 
   <meta name="robots" content="index, follow">
 
@@ -275,7 +279,8 @@
     }
 
     .feature-grid,
-    .detail-grid {
+    .detail-grid,
+    .signal-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
@@ -283,6 +288,7 @@
     }
 
     .feature-card,
+    .signal-card,
     .detail-card {
       padding: 1.25rem;
       border: 1px solid var(--gold-border);
@@ -291,12 +297,21 @@
     }
 
     .feature-card p,
+    .signal-card p,
     .detail-card p,
     .support p,
     footer p {
       margin: 0.7rem 0 0;
       color: var(--muted);
       line-height: 1.7;
+    }
+
+    .signal-card strong {
+      display: block;
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .feature-list {
@@ -342,7 +357,8 @@
 
       .hero-grid,
       .feature-grid,
-      .detail-grid {
+      .detail-grid,
+      .signal-grid {
         grid-template-columns: 1fr;
       }
 
@@ -411,10 +427,10 @@
           <span class="section-label">Social Connection Platform</span>
           <h1>Amouraéx</h1>
           <p class="tagline">
-            Real interaction. Better discovery. More than swiping. Amouraéx
-            blends real-time expression, local and worldwide discovery, guided
-            activity experiences, and intentional communication into one
-            experience designed to feel more human.
+            Compatibility-first dating built around Date Sparks, live Blind Date
+            matchmaking, profile discovery, and safety controls. Amouraéx helps
+            people connect through shared values, real details, and clearer
+            reasons to start a conversation.
           </p>
           <div class="hero-actions">
             <a class="cta-link primary" href="https://play.google.com/store/apps/details?id=com.ray.amouraex_app">Open Google Play</a>
@@ -430,20 +446,20 @@
               <img class="app-logo" src="logo.png" alt="" />
               <div class="app-name">Amouraéx</div>
               <p class="app-subtitle">
-                A black-and-gold connection experience built around safety and real expression.
+                A black-and-gold dating experience built around compatibility, safety, and real people.
               </p>
               <div class="mini-card">
-                <strong>Discover differently</strong>
-                <span>Profiles, moments, and activity-based entry points in one platform.</span>
+                <strong>Date Sparks</strong>
+                <span>Compatibility-first discovery that highlights profile signals and short human answers.</span>
                 <div class="chips">
-                  <span class="chip">Moments</span>
+                  <span class="chip">Date Sparks</span>
                   <span class="chip">Blind Date</span>
-                  <span class="chip">Premium</span>
+                  <span class="chip">Compatibility</span>
                 </div>
               </div>
               <div class="mini-card">
                 <strong>Trust matters</strong>
-                <span>Verification, reporting, and safety resources support healthier interaction.</span>
+                <span>Verification, reporting, moderation evidence, and account controls support healthier interaction.</span>
               </div>
             </div>
           </div>
@@ -453,12 +469,12 @@
 
     <section class="overview">
       <span class="section-label">Overview</span>
-      <h2>Share your world. Discover theirs.</h2>
+      <h2>Find stronger reasons to connect.</h2>
       <p class="section-copy">
-        Amouraéx is a modern social connection platform that goes beyond static
-        profiles and endless swiping. It gives people more ways to be seen,
-        more ways to discover others, and more ways to begin conversations with
-        context instead of pressure.
+        Amouraéx is a modern dating and social discovery platform that moves
+        beyond static profile browsing. Date Sparks surfaces compatibility
+        signals, shared interests, and short prompt answers so people can see
+        more than a photo before deciding whether to talk.
       </p>
     </section>
 
@@ -467,31 +483,45 @@
       <h2>Core experiences inside Amouraéx</h2>
       <div class="feature-grid">
         <div class="feature-card">
-          <h3>Moments</h3>
-          <p>Share real-time photos that stay visible for up to 30 days and bring daily life into discovery.</p>
+          <h3>Date Sparks</h3>
+          <p>Discover people through compatibility-first cards that combine profile details, shared signals, and short prompt answers.</p>
         </div>
         <div class="feature-card">
           <h3>Profile Discovery</h3>
-          <p>Explore local and global users based on plan access, preferences, and discovery settings.</p>
+          <p>Explore local and global profiles based on preferences, account status, plan access, and safety rules.</p>
         </div>
         <div class="feature-card">
           <h3>Messaging</h3>
-          <p>Communicate through text, voice, and media in a flow designed to feel expressive and immediate.</p>
+          <p>Communicate through text, voice, and media with country-aware access, blocking, reporting, and privacy controls.</p>
         </div>
         <div class="feature-card">
-          <h3>Guided Experiences</h3>
-          <p>Use Gaming Date, Blind Date, Date Wheel, and compatibility-led experiences to start differently.</p>
+          <h3>Blind Date</h3>
+          <p>Enter a live anonymous search and match with someone else who is actively looking at the same time.</p>
+        </div>
+      </div>
+
+      <div class="signal-grid">
+        <div class="signal-card">
+          <strong>Compatibility</strong>
+          <h3>Compare Deeper</h3>
+          <p>Paid compatibility features can help compare relationship goals, values, communication style, and fit before a conversation goes further.</p>
+        </div>
+        <div class="signal-card">
+          <strong>Safety</strong>
+          <h3>Evidence-Aware Reporting</h3>
+          <p>Reports can include structured context from messages, Blind Date sessions, Date Sparks, profiles, and other relevant in-app surfaces.</p>
         </div>
       </div>
 
       <div class="feature-card">
         <h3>Additional Platform Features</h3>
         <ul class="feature-list">
-          <li>Compatibility Quiz experiences designed around relationship goals and personality fit</li>
-          <li>Profile verification system</li>
+          <li>Date Spark visibility settings and short-answer prompts</li>
+          <li>Compatibility Quiz experiences designed around relationship goals, values, and personality fit</li>
+          <li>Gold Shield identity verification and profile trust indicators</li>
           <li>Spotlight boosts and recent profile viewer features on higher tiers</li>
           <li>Built-in safety tools including report, block, and moderation</li>
-          <li>Privacy controls for visibility and communication</li>
+          <li>Privacy controls for visibility, communication, and discovery participation</li>
         </ul>
       </div>
     </section>
@@ -505,14 +535,14 @@
           <p>
             Users have control over who can view their profile, read receipts,
             online visibility, and how they appear across discovery, messaging,
-            and activity surfaces.
+            Date Sparks, and activity surfaces.
           </p>
         </div>
         <div class="detail-card">
           <h3>Subscriptions</h3>
           <p>
             Optional Plus and Premium subscriptions expand discovery, messaging,
-            activity access, visibility tools, and geographic reach.
+            compatibility tools, activity access, visibility tools, and geographic reach.
           </p>
           <p>
             Subscription pricing may vary by country, region, local currency,
@@ -522,15 +552,15 @@
         <div class="detail-card">
           <h3>Plus</h3>
           <p>
-            Plus is designed for stronger in-country access and deeper local
-            discovery.
+            Plus is designed for stronger access to local and in-country discovery,
+            communication, and connection tools.
           </p>
         </div>
         <div class="detail-card">
           <h3>Premium</h3>
           <p>
-            Premium unlocks worldwide messaging and broader global activity
-            discovery.
+            Premium can unlock broader global reach, wider messaging access,
+            and deeper compatibility-led discovery where available.
           </p>
         </div>
       </div>
