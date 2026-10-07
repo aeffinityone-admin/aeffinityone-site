@@ -1,0 +1,36 @@
+:root{
+  --ae-bg:#05070a;
+  --ae-bg-soft:#0d1117;
+  --ae-panel:#121720;
+  --ae-panel-strong:#171d27;
+  --ae-text:#f4f5f7;
+  --ae-muted:#a7adb7;
+  --ae-blue:#68aef8;
+  --ae-blue-strong:#3f8ff2;
+  --ae-blue-soft:rgba(104,174,248,.14);
+  --ae-blue-border:rgba(104,174,248,.32);
+  --ae-gold:var(--ae-blue);
+  --ae-gold-strong:var(--ae-blue-strong);
+  --ae-gold-soft:var(--ae-blue-soft);
+  --ae-gold-border:var(--ae-blue-border);
+  --gold:var(--ae-blue);
+  --gold-soft:var(--ae-blue-soft);
+  --gold-border:var(--ae-blue-border);
+}
+html{color-scheme:dark}
+body,.ae-page{background:var(--ae-bg)!important;background-image:none!important;color:var(--ae-text)!important}
+body:before,body:after,.ae-page:before,.ae-page:after{background-image:none!important}
+a{color:var(--ae-blue)}
+.ae-brand{color:var(--ae-text)!important}
+.ae-nav,.header,.topbar{border-color:rgba(255,255,255,.1)!important}
+.ae-nav-links a,.nav-links a,.top-nav a,.back-link{color:#d3d7dd!important;border-color:var(--ae-blue-border)!important;background:transparent!important}
+.ae-eyebrow,.section-label,h2,.legal-group h2{color:var(--ae-blue)!important}
+.ae-button,.button,.btn,.cta-link{border-color:var(--ae-blue-border)!important;color:var(--ae-blue)!important;background:transparent!important;box-shadow:none!important}
+.ae-button.primary,.button.primary,.btn.primary,.cta-link.primary,button[type="submit"]{background:var(--ae-blue)!important;border-color:var(--ae-blue)!important;color:#07101a!important;box-shadow:none!important}
+.ae-card,.ae-visual-card,.legal-group,.card,.notice,.panel{background:var(--ae-panel)!important;border-color:rgba(255,255,255,.12)!important;box-shadow:none!important}
+.ae-card p,.ae-section-copy,.muted,.subtitle{color:var(--ae-muted)!important}
+input,textarea,select{background:var(--ae-bg-soft)!important;border-color:#37404d!important;color:var(--ae-text)!important}
+input:focus,textarea:focus,select:focus{border-color:var(--ae-blue)!important;outline-color:var(--ae-blue)!important}
+.header{background:var(--ae-blue)!important;color:#07101a!important}
+.ae-footer,footer{border-color:rgba(255,255,255,.1)!important}
+hr{border-color:rgba(255,255,255,.1)!important}
