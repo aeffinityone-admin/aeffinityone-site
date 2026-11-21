@@ -1,0 +1,54 @@
+.qonstellation-page section[id] { scroll-margin-top: 145px; }
+.qon-plans, .qon-questions {
+  padding: 96px max(24px, calc((100vw - var(--max)) / 2));
+  border-top: 1px solid var(--line);
+}
+.qon-plans { background: radial-gradient(ellipse at 50% 0, #172638 0, #0b111a 42%, var(--bg) 80%); }
+.qon-section-heading { max-width: 780px; margin-bottom: 44px; }
+.qon-kicker { color: var(--blue); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+.qon-section-heading h2 { margin: 16px 0 22px; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; }
+.qon-section-heading > p { max-width: 700px; color: #b9c2ce; font-size: 18px; line-height: 1.65; }
+.qon-plan-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.qon-plan { min-width: 0; padding: 32px 28px; border: 1px solid #354150; border-radius: 16px; background: #101720; }
+.qon-plan-featured { border-color: #76b6f9; background: linear-gradient(160deg, #1b3047, #111b28 70%); }
+.qon-plan-label { color: #bbc9d9; font-size: 12px; letter-spacing: .04em; }
+.qon-plan h3 { margin: 12px 0 28px; font-size: 29px; }
+.qon-storage { margin: 0; font-size: clamp(45px, 5vw, 64px); font-weight: 750; line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.qon-storage span { color: #97bfeb; font-size: 25px; letter-spacing: 0; }
+.qon-storage-caption { margin: 12px 0 28px; color: #b3bfcd; font-size: 13px; }
+.qon-plan dl { margin: 0; }
+.qon-plan dl > div { display: flex; justify-content: space-between; gap: 12px; padding: 15px 0; border-top: 1px solid #354150; font-size: 14px; line-height: 1.5; }
+.qon-plan dt { color: #c0cad6; }
+.qon-plan dd { margin: 0; text-align: right; font-weight: 750; white-space: nowrap; }
+.qon-plan-billing { margin: 24px 0 0; color: #c0cad6; font-size: 13px; line-height: 1.6; }
+.qon-plan-notes { max-width: 960px; margin-top: 30px; color: #aeb9c8; font-size: 14px; line-height: 1.75; }
+.qon-plan-notes strong { color: #e3eaf2; }
+.qon-plan-notes p:last-child { color: #97a5b6; font-size: 12px; }
+.qon-questions { background: #0c1118; }
+.qon-faq-list { max-width: 960px; }
+.qon-faq-list details { border-top: 1px solid #354150; }
+.qon-faq-list details:last-child { border-bottom: 1px solid #354150; }
+.qon-faq-list summary { cursor: pointer; padding: 24px 8px; font-size: 19px; font-weight: 650; line-height: 1.5; }
+.qon-faq-list details > div { padding: 0 8px 22px; color: #b6c1cf; line-height: 1.75; max-width: 850px; }
+.qon-faq-list a { color: #92c6ff; text-decoration: underline; text-underline-offset: 3px; }
+.qonstellation-page a:focus-visible, .qon-faq-list summary:focus-visible { outline: 2px solid #9acdff; outline-offset: 5px; }
+@media (max-width: 820px) {
+  .qon-plan-grid { grid-template-columns: 1fr; }
+  .qon-plan { padding: 28px; }
+  .qon-plans, .qon-questions { padding: 72px 24px; }
+  .qon-plan h3 { margin-bottom: 20px; }
+  .qon-plan dl { max-width: 560px; }
+  .qonstellation-page section[id] { scroll-margin-top: 175px; }
+}
+@media (max-width: 440px) {
+  .qonstellation-page .local-links { gap: 10px; }
+  .qonstellation-page .local-links a { display: inline-flex; font-size: 12px; }
+  .qonstellation-page .local-links .local-cta { padding: 8px 10px; margin-left: 0; }
+  .qon-plans, .qon-questions { padding-inline: 20px; }
+  .qon-plan { padding: 26px 22px; }
+  .qon-faq-list summary { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qonstellation-page { scroll-behavior: auto; }
+  html:has(.qonstellation-page) { scroll-behavior: auto; }
+}

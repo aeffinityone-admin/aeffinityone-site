@@ -1,7 +1,7 @@
 const destinations = [
   ['Products', 'products.html', 'All Æffinityone products'],
   ['Taskynx', 'taskynx.html', 'Work operations, schedules, proof, and team visibility'],
-  ['Qonstellation', 'qonstellation.html', 'Creative writing and publishing studio'],
+  ['Qonstellation', 'qonstellation.html', 'Private book and visual storytelling studio'],
   ['AEXSpace', 'aexspace.html', 'Community spaces and shared activity'],
   ['Amouraéx', 'amouraex.html', 'Intentional connection and compatibility'],
   ['Services', 'services.html', 'Product, design, and technology services'],
